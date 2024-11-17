@@ -19,7 +19,7 @@
     "@payloadcms/next": "beta",
     "@payloadcms/payload-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
-    "@payloadcms/storage-gcs": "^3.0.0-beta.29",
+    "@payloadcms/storage-gcs": "3.0.0-beta.132",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",

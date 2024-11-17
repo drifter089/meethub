@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <title>My Site</title>
       </head>
       <body>
-        <div className="top-10 bg-slate-400">sdjkhvbbds</div>
+        <div className="h-[10vh] bg-slate-400"></div>
         {children}
       </body>
     </html>
