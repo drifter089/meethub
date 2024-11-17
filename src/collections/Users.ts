@@ -7,6 +7,14 @@ export const Users: CollectionConfig = {
   },
   auth: true,
   fields: [
+
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      // required: true,
+    },
+
     // Email added by default
     // Add more fields as needed
   ],
