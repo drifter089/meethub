@@ -7,10 +7,10 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { gcsStorage } from '@payloadcms/storage-gcs'
 
-import { Users } from './collections/Users'
+import Users from './collections/Users'
 import { Media } from './collections/Media'
-import { Events } from './collections/Events'
 import Platforms from './collections/Platforms'
+import { Posts } from './collections/CreateEvents'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Events, Platforms],
+  collections: [Users, Media, Platforms, Posts],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
