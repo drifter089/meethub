@@ -13,8 +13,8 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    events: Event;
     platforms: Platform;
+    posts: Post;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -23,8 +23,8 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    events: EventsSelect<false> | EventsSelect<true>;
     platforms: PlatformsSelect<false> | PlatformsSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -67,6 +67,8 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
+  name?: string | null;
+  image?: (string | null) | Media;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -100,14 +102,24 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "events".
+ * via the `definition` "platforms".
  */
-export interface Event {
+export interface Platform {
   id: string;
-  slug: string;
-  'Event Name': string;
-  date: string;
-  description: {
+  name: string;
+  link: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  image: string | Media;
+  content: {
     root: {
       type: string;
       children: {
@@ -122,21 +134,23 @@ export interface Event {
     };
     [k: string]: unknown;
   };
-  image: string | Media;
   platforms?: (string | Platform)[] | null;
+  publishedAt?: string | null;
+  authors?: (string | User)[] | null;
+  eventDateTime?: string | null;
+  location?: string | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  generatedLink?: string | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "platforms".
- */
-export interface Platform {
-  id: string;
-  name: string;
-  link: string;
-  updatedAt: string;
-  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -154,12 +168,12 @@ export interface PayloadLockedDocument {
         value: string | Media;
       } | null)
     | ({
-        relationTo: 'events';
-        value: string | Event;
-      } | null)
-    | ({
         relationTo: 'platforms';
         value: string | Platform;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: string | Post;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -208,6 +222,8 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -239,20 +255,6 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "events_select".
- */
-export interface EventsSelect<T extends boolean = true> {
-  slug?: T;
-  'Event Name'?: T;
-  date?: T;
-  description?: T;
-  image?: T;
-  platforms?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "platforms_select".
  */
 export interface PlatformsSelect<T extends boolean = true> {
@@ -260,6 +262,32 @@ export interface PlatformsSelect<T extends boolean = true> {
   link?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  content?: T;
+  platforms?: T;
+  publishedAt?: T;
+  authors?: T;
+  eventDateTime?: T;
+  location?: T;
+  populatedAuthors?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  generatedLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
