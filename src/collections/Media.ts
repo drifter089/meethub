@@ -10,6 +10,9 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {
@@ -18,6 +21,6 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: {staticDir: path.resolve(dirname, '../../public')},
+  upload: { staticDir: path.resolve(dirname, '../../public') },
 }
 

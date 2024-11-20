@@ -125,8 +125,11 @@ export const Posts: CollectionConfig = {
       },
     },
     {
-      name: 'location',
-      type: 'text',
+      name: 'venue',
+      label: "Event's Venue",
+      type: 'relationship',
+      relationTo: 'venues',
+      required: true,
       admin: {
         position: 'sidebar',
       },

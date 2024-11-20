@@ -3,6 +3,7 @@ import type {
   CollectionAfterReadHook,
   CollectionBeforeReadHook,
 } from 'payload'
+import { loadEnvConfig } from '@next/env'
 
 import type { Post } from '../../../payload-types'
 
@@ -11,8 +12,9 @@ export const generatedLink: CollectionBeforeReadHook<Post> = async ({
   //   previousDoc,
   req: { payload },
 }) => {
-  const nextBaseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-  const generatedLink = `${nextBaseUrl}/meethub/event/${doc.slug}`
+  console.log('envs', process.env)
+  const nextBaseUrl = process.env.VERCEL_URL || 'localhost:3000'
+  const generatedLink = `https://${nextBaseUrl}/meethub/event/${doc.slug}`
 
   //   const t = { ...doc }
   doc.generatedLink = generatedLink
