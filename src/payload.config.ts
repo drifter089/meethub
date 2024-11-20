@@ -11,17 +11,14 @@ import Users from './collections/Users'
 import { Media } from './collections/Media'
 import Platforms from './collections/Platforms'
 import { Posts } from './collections/CreateEvents'
+import Venues from './collections/Venues'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-
-
-
 export default buildConfig({
   admin: {
-    
-   meta: {
+    meta: {
       titleSuffix: 'meethub',
       icons: [
         {
@@ -32,20 +29,19 @@ export default buildConfig({
           rel: 'icon',
         },
       ],
-      
     },
     components: {
       graphics: {
-        Logo: "/graphics/Logo.js#LogoFull",
-        Icon:"/graphics/Logo.js#Logo"
-      }
+        Logo: '/graphics/Logo.js#LogoFull',
+        Icon: '/graphics/Logo.js#Logo',
+      },
     },
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Platforms, Posts],
+  collections: [Users, Media, Platforms, Posts, Venues],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

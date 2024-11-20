@@ -15,6 +15,7 @@ export interface Config {
     media: Media;
     platforms: Platform;
     posts: Post;
+    venues: Venue;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -25,6 +26,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     platforms: PlatformsSelect<false> | PlatformsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    venues: VenuesSelect<false> | VenuesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -124,7 +126,7 @@ export interface Post {
   publishedAt?: string | null;
   authors?: (string | User)[] | null;
   eventDateTime?: string | null;
-  location?: string | null;
+  venue: string | Venue;
   populatedAuthors?:
     | {
         id?: string | null;
@@ -137,6 +139,17 @@ export interface Post {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "venues".
+ */
+export interface Venue {
+  id: string;
+  name: string;
+  description: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -160,6 +173,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: 'venues';
+        value: string | Venue;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -261,7 +278,7 @@ export interface PostsSelect<T extends boolean = true> {
   publishedAt?: T;
   authors?: T;
   eventDateTime?: T;
-  location?: T;
+  venue?: T;
   populatedAuthors?:
     | T
     | {
@@ -274,6 +291,16 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "venues_select".
+ */
+export interface VenuesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
