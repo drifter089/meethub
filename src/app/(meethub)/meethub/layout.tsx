@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <div className="h-[10vh] bg-slate-400"></div>
-        {children}
+        <div className="w-[100vw] flex flex-col items-center gap-8">{children}</div>
       </body>
     </html>
   )
