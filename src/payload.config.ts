@@ -11,7 +11,7 @@ import Users from './collections/Users'
 import { Media } from './collections/Media'
 import Platforms from './collections/Platforms'
 import { Posts } from './collections/CreateEvents'
-import { Logo } from 'graphics/Logo'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -22,7 +22,7 @@ export default buildConfig({
   admin: {
     
    meta: {
-      titleSuffix: '- TRBL Design',
+      titleSuffix: 'meethub',
       icons: [
         {
           fetchPriority: 'high',
