@@ -11,12 +11,15 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Events } from './collections/Events'
 import Platforms from './collections/Platforms'
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+
+
+
 export default buildConfig({
   admin: {
+
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
