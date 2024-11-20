@@ -11,8 +11,6 @@ export const generatedLink: CollectionBeforeReadHook<Post> = async ({
   //   previousDoc,
   req: { payload },
 }) => {
-  console.log('generatelink here', doc)
-
   const nextBaseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
   const generatedLink = `${nextBaseUrl}/meethub/event/${doc.slug}`
 
