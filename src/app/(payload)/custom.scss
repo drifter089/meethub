@@ -1,4 +1,11 @@
-
+@font-face {
+    font-family: 'Poppins';
+    src: url(../../../Poppins/Poppins-Regular.ttf) format(truetype);
+}
+// @font-face {
+//     font-family: 'Dotoo';
+//     src: url(../../../dott/Doto/dotto.ttf) format(truetype) ;
+// }
 
 
 html { &[data-theme=dark] {
@@ -28,41 +35,56 @@ html { &[data-theme=dark] {
 }
 
 body, h2, h5 {
-  font-family: monospace;
-  font-weight: bold;
+  font-family: 'Poppins';
 }
+
+// ul {
+//     // padding-left: $baseline;
+//     margin: 0;
+//     border: 3px solid red
+// }
+
+// ol {
+//     // padding-left: $baseline;
+//     margin: 0;
+//     border: 3px solid red
+// }
+
 
 .btn {
   &--style-primary {
-    background-color: rgb(0, 213, 110);
-    color: var(--theme-elevation-900);
+    background-color: rgb(158, 4, 81);
+    color: rgb(255, 255, 255);
   }
 
   &--style-primary.btn--disabled {
-    background-color: rgb(102, 255, 212);
+    background-color: rgb(158, 4, 81);
   }
 
   &--disabled {
-    background-color: rgb(102, 255, 212);
+    background-color: rgb(158, 4, 81);
   }
 }
 
 .login .logo path {
-  fill: rgb(0, 213, 110);
+  fill: rgb(158, 4, 81);
 }
+
+
 
 .template-default {
   .nav {
     &__brand .icon path {
-      fill: rgb(0, 213, 110);
+      fill: rgb(158, 4, 81);
     }
   }
   
+
   .before-dashboard {
     .banner {
       // BEM modifier selector (.banner--type-success)
       &--type-success {
-        background: rgb(0, 213, 110);
+        background: rgb(158, 4, 81);
         color: white;
       }
 

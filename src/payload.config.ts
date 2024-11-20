@@ -7,10 +7,11 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { gcsStorage } from '@payloadcms/storage-gcs'
 
-import { Users } from './collections/Users'
+import Users from './collections/Users'
 import { Media } from './collections/Media'
-import { Events } from './collections/Events'
 import Platforms from './collections/Platforms'
+import { Posts } from './collections/CreateEvents'
+import { Logo } from 'graphics/Logo'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -19,13 +20,32 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-
+    
+   meta: {
+      titleSuffix: '- TRBL Design',
+      icons: [
+        {
+          fetchPriority: 'high',
+          url: '/LogoPink.svg',
+          sizes: '32x32',
+          type: 'image/png',
+          rel: 'icon',
+        },
+      ],
+      
+    },
+    components: {
+      graphics: {
+        Logo: "/graphics/Logo.js#LogoFull",
+        Icon:"/graphics/Logo.js#Logo"
+      }
+    },
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Events, Platforms],
+  collections: [Users, Media, Platforms, Posts],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
