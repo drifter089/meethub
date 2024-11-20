@@ -15,8 +15,31 @@ import { Posts } from './collections/CreateEvents'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+
+
+
 export default buildConfig({
   admin: {
+    
+   meta: {
+      titleSuffix: 'meethub',
+      icons: [
+        {
+          fetchPriority: 'high',
+          url: '/LogoPink.svg',
+          sizes: '32x32',
+          type: 'image/png',
+          rel: 'icon',
+        },
+      ],
+      
+    },
+    components: {
+      graphics: {
+        Logo: "/graphics/Logo.js#LogoFull",
+        Icon:"/graphics/Logo.js#Logo"
+      }
+    },
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
