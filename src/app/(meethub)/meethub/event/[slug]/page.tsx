@@ -11,6 +11,8 @@ import EventHost from 'blocks/EventHostCard/EventHost'
 import Venue from 'blocks/Venue/Venue'
 // import { Button } from '@payloadcms/ui'
 
+
+
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   const parsedSlug = decodeURIComponent(slug)
   console.log('parsedSlug', parsedSlug)
@@ -62,13 +64,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <>
       <h1 className="text-center p-6 pb-0 text-black text-[2.25rem] font-semibold">Registration</h1>
-
-      <div className="flex flex-row px-20">
+      
+      <div className="flex flex-row px-[20vw]">
         <div className="flex flex-col justify-center items-start min-w-[50%] w-[50%] gap-4">
           <h2 className="text-[#FF009D] text-[1.5rem] font-normal">{page.eventDateTime}</h2>
           <h1 className="text-black text-[4rem] font-bold mb-4">
-            {/* {page.title} */}
-            Bangkok Events: Meet up International Friends
+            {page.title}
           </h1>
           <div className="bg-[#FF009D] rounded-[4rem] p-4 px-12 text-white">RSVP</div>
         </div>
@@ -82,10 +83,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           />
         </div>
       </div>
-      <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-16">
+      <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-[20vw]">
         <div className="flex flex-col justify-start items-start min-w-[50%]">
-          <h3 className=" text-[2rem] font-bold">Description:</h3>
-          <p className="text-black text-2xl font-normal pb-5">{page.content}</p>
+          <h3 className=" text-[1.5rem] font-bold">Description:</h3>
+          <p className="text-black text-2xl font-normal pb-5 pr-[5vw]">{page.content}</p>
           <div className="my-auto">
             {page.platforms &&
               page.platforms.map((platform) =>
@@ -107,6 +108,19 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           {/* <EventHost imageLink={page} /> */}
           <Venue />
         </div>
+      </div>
+      <div className="relative w-full">
+        <Image
+          src="https://meethub-smoky.vercel.app/api/media/file/paymentsSection.png" // Replace with your actual image path or URL
+          layout="responsive"
+          width={900} // Replace with the desired width
+          height={400} // Replace with the desired height
+          style={{
+            width: '100vh', // Fills 80% of the screen width
+            height: 'auto', // Keeps the aspect ratio
+          }}
+          alt="Additional image at the bottom"
+        />
       </div>
     </>
   )

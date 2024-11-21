@@ -6,31 +6,35 @@ import Image from 'next/image'
 const Venue = () => {
   return (
     <Card className="flex flex-col">
-      <div className="flex items-center w-[100%] justify-center m-3">
+      <div className="flex items-left w-[80%%] justify-left m-3">
         <Avatar>
           <AvatarImage
-            src="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=schedule"
+            src="https://meethub-smoky.vercel.app/api/media/file/clockIcon.svg"
             alt="@shadcn"
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <div className="ml-2">Saturday, November 16, 2024, 8 PM</div>
+        <div className="ml-4 font-normal text-[1.5rem]">Saturday, November 16, 2024
+          <p>8:00pm</p>
+        </div>
       </div>
-      <div className="flex items-center w-[100%] justify-center m-3">
+      <div className="flex items-left w-[80%] justify-left m-3">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarImage src="https://meethub-smoky.vercel.app/api/media/file/locationIcon.svg" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <div className="ml-2">
+        <div className="ml-4 font-semibold text-[1.5rem]">
           <p>The white mulberry</p>
+          <div className="font-normal">
           <p>SILQ hotel Sukhumvit soi 24, 9th floor, Bangkok</p>
+          </div>
         </div>
       </div>
       <Image
-        src="https://github.com/shadcn.png"
+        src="https://meethub-smoky.vercel.app/api/media/file/maps.png"
         alt="Picture of the author"
-        width={500}
-        height={500}
+        width={550}
+        height={550}
       />
     </Card>
   )
