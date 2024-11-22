@@ -16,6 +16,7 @@ export interface Config {
     platforms: Platform;
     posts: Post;
     venues: Venue;
+    attendees: Attendee;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -27,6 +28,7 @@ export interface Config {
     platforms: PlatformsSelect<false> | PlatformsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     venues: VenuesSelect<false> | VenuesSelect<true>;
+    attendees: AttendeesSelect<false> | AttendeesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -153,6 +155,19 @@ export interface Venue {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attendees".
+ */
+export interface Attendee {
+  id: string;
+  name: string;
+  email: string;
+  image?: (string | null) | Media;
+  thing?: (string | Platform)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -177,6 +192,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'venues';
         value: string | Venue;
+      } | null)
+    | ({
+        relationTo: 'attendees';
+        value: string | Attendee;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -299,6 +318,18 @@ export interface PostsSelect<T extends boolean = true> {
 export interface VenuesSelect<T extends boolean = true> {
   name?: T;
   description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attendees_select".
+ */
+export interface AttendeesSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  image?: T;
+  thing?: T;
   updatedAt?: T;
   createdAt?: T;
 }

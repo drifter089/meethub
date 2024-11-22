@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { authenticated } from '../access/authenticated'
 
 const Users: CollectionConfig = {
-  slug: 'users', 
+  slug: 'users',
   labels: {
     singular: 'Manage Team',
     plural: 'Manage Team',
