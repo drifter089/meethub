@@ -11,8 +11,6 @@ import EventHost from 'blocks/EventHostCard/EventHost'
 import Venue from 'blocks/Venue/Venue'
 // import { Button } from '@payloadcms/ui'
 
-
-
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   const parsedSlug = decodeURIComponent(slug)
   console.log('parsedSlug', parsedSlug)
@@ -59,18 +57,22 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     return notFound()
   }
 
-  console.log('page', page)
+  // console.log('page', page)
+  const date = new Date(page?.eventDateTime) // Ensure it's a valid Date object
+  const formattedDate = date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 
   return (
     <>
       <h1 className="text-center p-6 pb-0 text-black text-[2.25rem] font-semibold">Registration</h1>
-      
+
       <div className="flex flex-row px-[20vw]">
         <div className="flex flex-col justify-center items-start min-w-[50%] w-[50%] gap-4">
-          <h2 className="text-[#FF009D] text-[1.5rem] font-normal">{page.eventDateTime}</h2>
-          <h1 className="text-black text-[4rem] font-bold mb-4">
-            {page.title}
-          </h1>
+          <h2 className="text-[#FF009D] text-[1.5rem] font-normal">{formattedDate}</h2>
+          <h1 className="text-black text-[4rem] font-bold mb-4">{page.title}</h1>
           <div className="bg-[#FF009D] rounded-[4rem] p-4 px-12 text-white">RSVP</div>
         </div>
         <div className="relative w-[50%] min-w[50%] ">
