@@ -125,6 +125,7 @@ export interface Post {
   image: string | Media;
   content: string;
   platforms?: (string | Platform)[] | null;
+  seats?: number | null;
   publishedAt?: string | null;
   authors?: (string | User)[] | null;
   eventDateTime?: string | null;
@@ -294,6 +295,7 @@ export interface PostsSelect<T extends boolean = true> {
   image?: T;
   content?: T;
   platforms?: T;
+  seats?: T;
   publishedAt?: T;
   authors?: T;
   eventDateTime?: T;

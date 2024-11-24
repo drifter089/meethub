@@ -83,6 +83,11 @@ export const Posts: CollectionConfig = {
       hasMany: true,
     },
     {
+      name: 'seats',
+      type: 'number',
+      label: 'Number of Seats Available',
+    },
+    {
       name: 'publishedAt',
       type: 'date',
       admin: {
