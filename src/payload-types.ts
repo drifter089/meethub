@@ -17,7 +17,6 @@ export interface Config {
     posts: Post;
     venues: Venue;
     attendees: Attendee;
-    pages: Page;
     horizontalcards: Horizontalcard;
     verticalcards: Verticalcard;
     'payload-locked-documents': PayloadLockedDocument;
@@ -32,7 +31,6 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     venues: VenuesSelect<false> | VenuesSelect<true>;
     attendees: AttendeesSelect<false> | AttendeesSelect<true>;
-    pages: PagesSelect<false> | PagesSelect<true>;
     horizontalcards: HorizontalcardsSelect<false> | HorizontalcardsSelect<true>;
     verticalcards: VerticalcardsSelect<false> | VerticalcardsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -42,8 +40,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    home: Home;
+  };
+  globalsSelect: {
+    home: HomeSelect<false> | HomeSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -175,56 +177,6 @@ export interface Attendee {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: string;
-  layout?:
-    | (
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            content: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ('ltr' | 'rtl') | null;
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            image: string | Media;
-            reverse?: boolean | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Hero';
-          }
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            component: 'carousel' | 'basic' | 'upcomingevents' | 'pastevents';
-            cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'section';
-          }
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Social';
-          }
-      )[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "horizontalcards".
  */
 export interface Horizontalcard {
@@ -303,10 +255,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'attendees';
         value: string | Attendee;
-      } | null)
-    | ({
-        relationTo: 'pages';
-        value: string | Page;
       } | null)
     | ({
         relationTo: 'horizontalcards';
@@ -455,44 +403,6 @@ export interface AttendeesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
- */
-export interface PagesSelect<T extends boolean = true> {
-  layout?:
-    | T
-    | {
-        Hero?:
-          | T
-          | {
-              backgroundColor?: T;
-              content?: T;
-              image?: T;
-              reverse?: T;
-              id?: T;
-              blockName?: T;
-            };
-        section?:
-          | T
-          | {
-              backgroundColor?: T;
-              component?: T;
-              cards?: T;
-              id?: T;
-              blockName?: T;
-            };
-        Social?:
-          | T
-          | {
-              backgroundColor?: T;
-              id?: T;
-              blockName?: T;
-            };
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "horizontalcards_select".
  */
 export interface HorizontalcardsSelect<T extends boolean = true> {
@@ -542,6 +452,95 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home".
+ */
+export interface Home {
+  id: string;
+  layout?:
+    | (
+        | {
+            backgroundColor: 'primary' | 'secondary';
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            reverse?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Hero';
+          }
+        | {
+            backgroundColor: 'primary' | 'secondary';
+            component: 'carousel' | 'basic' | 'upcomingevents' | 'pastevents';
+            cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'section';
+          }
+        | {
+            backgroundColor: 'primary' | 'secondary';
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Social';
+          }
+      )[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home_select".
+ */
+export interface HomeSelect<T extends boolean = true> {
+  layout?:
+    | T
+    | {
+        Hero?:
+          | T
+          | {
+              backgroundColor?: T;
+              content?: T;
+              image?: T;
+              reverse?: T;
+              id?: T;
+              blockName?: T;
+            };
+        section?:
+          | T
+          | {
+              backgroundColor?: T;
+              component?: T;
+              cards?: T;
+              id?: T;
+              blockName?: T;
+            };
+        Social?:
+          | T
+          | {
+              backgroundColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
