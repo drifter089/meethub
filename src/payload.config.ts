@@ -13,7 +13,6 @@ import Platforms from './collections/Platforms'
 import { Posts } from './collections/CreateEvents'
 import Venues from './collections/Venues'
 import Attendees from './collections/Attendees'
-import Temp from './collections/Temp'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -43,7 +42,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Platforms, Posts, Venues, Attendees, Temp],
+  collections: [Users, Media, Platforms, Posts, Venues, Attendees],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
