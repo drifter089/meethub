@@ -2,6 +2,10 @@ import { CollectionConfig } from 'payload'
 
 const Platforms: CollectionConfig = {
   slug: 'platforms',
+  labels: {
+    singular: 'Social',
+    plural: 'Social',
+  },
   admin: {
     useAsTitle: 'name',
   },
