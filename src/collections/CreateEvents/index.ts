@@ -42,7 +42,7 @@ export const Posts: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    defaultColumns: ['title', 'generatedLink', 'updatedAt'],
+    defaultColumns: ['title', 'generatedLink', 'seats'],
     useAsTitle: 'title',
   },
   fields: [
