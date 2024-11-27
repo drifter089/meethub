@@ -12,8 +12,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         
       </head>
       <body>
-        <div className="h-[10vh] bg-[rgb(255,0,157)]"></div>
-        <div className="w-[100vw] flex flex-col items-center gap-8">{children}</div>
+        <div className="h-[1vh] bg-[rgb(255,255,255)]"></div>
+        <div className="w-[100vw] flex flex-col items-center gap-14">{children}</div>
       </body>
     </html>
   )

@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <h1 className="text-black text-[4rem] font-bold mb-4">
             {page.title}
           </h1>
-          <div className="bg-[#FF009D] rounded-[4rem] p-4 px-12 text-white">RSVP</div>
+          <div className="bg-[#FF009D] rounded-[5rem] p-4 px-12 text-white text-[1.5rem]">RSVP</div>
         </div>
         <div className="relative w-[50%] min-w[50%] ">
           <Image
