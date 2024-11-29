@@ -461,29 +461,7 @@ export interface Home {
   id: string;
   layout?:
     | (
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            content: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ('ltr' | 'rtl') | null;
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            image: string | Media;
-            reverse?: boolean | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Hero';
-          }
+        | LandingHero
         | {
             backgroundColor: 'primary' | 'secondary';
             component: 'carousel' | 'basic' | 'upcomingevents' | 'pastevents';
@@ -505,6 +483,20 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landingHero".
+ */
+export interface LandingHero {
+  heading: string;
+  content: string;
+  image: string | Media;
+  reverse?: boolean | null;
+  backgroundColor: 'primary' | 'secondary';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'Hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -514,10 +506,11 @@ export interface HomeSelect<T extends boolean = true> {
         Hero?:
           | T
           | {
-              backgroundColor?: T;
+              heading?: T;
               content?: T;
               image?: T;
               reverse?: T;
+              backgroundColor?: T;
               id?: T;
               blockName?: T;
             };
