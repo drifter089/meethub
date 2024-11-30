@@ -22,12 +22,6 @@ const Platforms: CollectionConfig = {
       required: true,
       label: 'link to the platform',
     },
-    {
-      name: 'image',
-      label: 'Social Media Platform',
-      type: 'upload',
-      relationTo: 'media',
-    },
   ],
 }
 
