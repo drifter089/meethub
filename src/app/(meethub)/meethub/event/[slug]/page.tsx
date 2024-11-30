@@ -7,8 +7,8 @@ import React, { cache } from 'react'
 import { notFound } from 'next/navigation'
 import type { Post } from '@/payload-types'
 import Image from 'next/image'
-import EventHost from 'blocks/EventHostCard/EventHost'
-import Venue from 'blocks/Venue/Venue'
+import EventHost from '@/collections/Users/EventHost'
+import VenueComponent from '@/collections/Venues/VenueComponent'
 // import { Button } from '@payloadcms/ui'
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   }
 
   // console.log('page', page)
-  const date = new Date(page?.eventDateTime) // Ensure it's a valid Date object
+  const date = page?.eventDateTime ? new Date(page.eventDateTime) : new Date() // Ensure it's a valid Date object
   const formattedDate = date.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -92,7 +92,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <div className="my-auto">
             {page.platforms &&
               page.platforms.map((platform) =>
-                platform.link && platform.name ? (
+                typeof platform === 'object' && platform.link && platform.name ? (
                   <>
                     <span className="py-1 block text-black text-2xl font-normal">
                       {platform.name} : {platform.link}
@@ -108,7 +108,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <EventHost key={index} imageLink={author.image.url} name={author.name} />
             ))}
           {/* <EventHost imageLink={page} /> */}
-          <Venue />
+          <VenueComponent />
         </div>
       </div>
       <div className="relative w-full">
