@@ -50,9 +50,9 @@ export interface Config {
   user: User & {
     collection: 'users';
   };
-  jobs: {
+  jobs?: {
     tasks: unknown;
-    workflows: unknown;
+    workflows?: unknown;
   };
 }
 export interface UserAuthOperations {
@@ -350,7 +350,6 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PlatformsSelect<T extends boolean = true> {
   name?: T;
   link?: T;
-  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }

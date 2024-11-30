@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import configPromise from '@payload-config';
-import { getPayload } from 'payload';
-import PlatformIconLink from '@/collections/Platforms/PlatformIconLink';
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import PlatformIconLink from '@/collections/Platforms/PlatformIconLink'
 
 const Socials = async () => {
-  const payload = await getPayload({ config: configPromise });
+  const payload = await getPayload({ config: configPromise })
+
   const platforms = await payload.find({
     collection: 'platforms',
     draft: false,
     limit: 1000,
-  });
-
-  console.log("platforms", platforms);
+  })
+  console.log('platform', platform)
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="text-center">
@@ -25,7 +25,7 @@ const Socials = async () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Socials;
+export default Socials
