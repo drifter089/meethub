@@ -2,6 +2,7 @@ import React from 'react'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import LandingHeroComp from '@/blocks/Hero/Hero'
+import Socials from '@/blocks/Socials/Socials'
 
 // const page = async () => {
 //   const payload = await getPayload({ config: configPromise })
@@ -58,6 +59,8 @@ const page = async () => {
                 key={block.id}
               />
             )
+          } else if (block.blockType === 'Social') {
+            return <Socials key={block.id}/>
           }
           return null
         })}

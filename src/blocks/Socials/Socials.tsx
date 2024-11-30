@@ -1,24 +1,24 @@
-import type { Block } from 'payload'
+import React from 'react'
 
-import {
-  FixedToolbarFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from '@payloadcms/richtext-lexical'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import PlatformIconLink from '@/collections/Platforms/PlatformIconLink'
 
-export const Hero: Block = {
-  slug: 'Hero',
-  fields: [
-    {
-      name: 'backgroundColor',
-      type: 'select',
-      defaultValue: 'primary',
-      options: [
-        { label: 'Primary', value: 'primary' },
-        { label: 'Secondary', value: 'secondary' },
-      ],
-      required: true,
-    },
-  ],
-  interfaceName: 'Hero',
+const Socials = async () => {
+  const payload = await getPayload({ config: configPromise })
+
+  const platform = await payload.find({
+    collection: 'platforms',
+    draft: false,
+    limit: 1000,
+  })
+  console.log('platform', platform)
+  return (
+    <div>
+      Socials
+      <PlatformIconLink />
+    </div>
+  )
 }
+
+export default Socials

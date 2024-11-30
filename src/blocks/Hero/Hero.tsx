@@ -14,18 +14,18 @@ const LandingHeroComp: React.FC<LandingHero> = ({
 
   return (
     <div
-      className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} flex ${reverse === true ? 'flex-row-reverse' : 'flex-row'} flex-wrap justify-center w-full px-6 sm:px-10 md:px-20 lg:px-20 xl:px-40 2xl:px-60 gap-2 md:gap-10 py-6 md:py-10 xl:py-16 2xl:py-28 overflow-hidden overflow-x-clip border-border`}
+      className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} flex ${reverse === true ? 'flex-row-reverse' : 'flex-row'} flex-wrap justify-center w-full px-6 sm:px-10 md:px-20 lg:px-20 xl:px-40 2xl:px-60 gap-2 md:gap-10 py-6 md:py-10 overflow-hidden overflow-x-clip border-border`}
     >
       <div className="w-[100%] lg:w-[45%] flex flex-col gap-4 justify-center">
         {reverse === false ? (
           <h1 className="text-4xl md:text-6xl font-bold text-primary">{heading}</h1>
         ) : (
-          <h2 className="text-4xl font-bold">{heading}</h2>
+          <h2 className="text-4xl  font-bold">{heading}</h2>
         )}
-        <p className="md:text-2xl font-normal leading-normal">{content}</p>
+        <p className="md:text-2xl  xl:text-3xl font-normal leading-normal">{content}</p>
         {reverse === false ? <Button variant="default">See Events</Button> : <></>}
       </div>
-      <div className="relative h-[40vh] sm:h-[40vh] md:h-[60vh] lg:h-auto w-full lg:w-[45%]">
+      <div className="relative h-[40vh] sm:h-[40vh] md:h-[60vh] lg:min-h-[50vh] w-full lg:w-[45%]">
         {typeof image !== 'string' && image?.url && (
           <Image src={image.url} alt={image.alt} fill className="object-contain" />
         )}
