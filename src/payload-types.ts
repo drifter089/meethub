@@ -120,7 +120,7 @@ export interface Platform {
   id: string;
   name: string;
   link: string;
-  image?: (string | null) | Media;
+  image?: (string | null) | Media; 
   updatedAt: string;
   createdAt: string;
 }

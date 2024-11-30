@@ -27,7 +27,7 @@ const Platforms: CollectionConfig = {
       label: 'Social Media Platform',
       type: 'upload',
       relationTo: 'media',
-    },
+    }, 
   ],
 }
 

@@ -21,7 +21,7 @@ const Socials = async () => {
       </div>
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
         {platforms.docs.map((platform) => (
-          <PlatformIconLink key={platform.id} platform={platform} />
+          <PlatformIconLink key={platform.id} platform={platform} /> 
         ))}
       </div>
     </div>

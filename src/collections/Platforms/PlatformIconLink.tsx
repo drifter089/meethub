@@ -20,7 +20,7 @@ const PlatformIconLink: React.FC<PlatformIconLinkProps> = ({ platform }) => {
       className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full hover:bg-gray-200 transition"
     >
       <img
-        src={imageUrl}
+        src={imageUrl} 
         alt={name}
         className="w-12 h-12 object-cover rounded-full"
       />
