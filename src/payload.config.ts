@@ -7,16 +7,16 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { gcsStorage } from '@payloadcms/storage-gcs'
 
-import Users from './collections/Users'
+import Users from './collections/Users/Users'
 import { Media } from './collections/Media'
-import Platforms from './collections/Platforms'
+import Platforms from './collections/Platforms/Platforms'
 import { Posts } from './collections/CreateEvents'
-import Venues from './collections/Venues'
+import Venues from './collections/Venues/Venues'
 import Attendees from './collections/Attendees'
 import page from './app/(meethub)/meethub/page'
 import Page from './collections/Page'
-import HorizontalCard from './collections/HorizontalCards'
-import VerticalCards from './collections/VerticalCards'
+import HorizontalCard from './collections/HorizontalCards/HorizontalCards'
+import VerticalCards from './collections/VerticalCards/VerticalCards'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
