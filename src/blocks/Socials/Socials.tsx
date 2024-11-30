@@ -12,7 +12,7 @@ const Socials = async () => {
     draft: false,
     limit: 1000,
   })
-  console.log('platform', platform)
+  console.log('platform', platforms)
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="text-center">
