@@ -9,6 +9,7 @@ import type { Post } from '@/payload-types'
 import Image from 'next/image'
 import EventHost from '@/collections/Users/EventHost'
 import VenueComponent from '@/collections/Venues/VenueComponent'
+import { Button } from '@/components/ui/button'
 // import { Button } from '@payloadcms/ui'
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
@@ -67,22 +68,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <>
-      <h1 className="text-center p-6 pb-0 text-black text-[2.25rem] font-semibold">Registration</h1>
-
-      <div className="flex flex-row px-[20vw]">
-        <div className="flex flex-col justify-center items-start min-w-[50%] w-[50%] gap-4">
-          <h2 className="text-[#FF009D] text-[1.5rem] font-normal">{formattedDate}</h2>
-          <h1 className="text-black text-[4rem] font-bold mb-4">{page.title}</h1>
-          <div className="bg-[#FF009D] rounded-[4rem] p-4 px-12 text-white">RSVP</div>
+      <div
+        className={`flex flex-wrap justify-center w-full gap-2 md:gap-10 py-6 md:py-10 overflow-hidden overflow-x-clip border-border default-x-padding`}
+      >
+        <div className="w-[100%] lg:w-[45%] flex flex-col gap-4 justify-center">
+          <p className="text-paragraph-primary">{formattedDate}</p>
+          <h1 className="text-subheading">{page.title}</h1>
+          <Button variant="default">See Events</Button>
         </div>
-        <div className="relative w-[50%] min-w[50%] ">
-          <Image
-            src={page.image.url}
-            width={page.image.width}
-            height={page.image.height}
-            style={{ objectFit: 'contain' }}
-            alt="Picture of the author"
-          />
+        <div className="relative h-[40vh] sm:h-[40vh] md:h-[60vh] lg:min-h-[50vh] w-full lg:w-[45%]">
+          {typeof page.image !== 'string' && page.image?.url && (
+            <Image src={page.image.url} alt={page.image.alt} fill className="object-contain" />
+          )}
         </div>
       </div>
       <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-[20vw]">
