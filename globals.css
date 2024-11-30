@@ -68,4 +68,13 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  h1{
+    @apply font-bold text-primary text-4xl md:text-6xl;
+  }
+  h2, h3, h4, h5, h6 {
+    @apply font-bold text-4xl;
+  }
+  p{
+    @apply md:text-2xl xl:text-3xl font-normal leading-normal;
+  }
 }
