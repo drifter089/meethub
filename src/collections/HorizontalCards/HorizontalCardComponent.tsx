@@ -4,18 +4,16 @@ import Image from 'next/image'
 
 const HorizantalCard: React.FC<Horizontalcard> = ({ heading, content, image }) => {
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex">
-      {/* Left Side: Image */}
-      <div className="w-1/3 relative overflow-hidden">
+    <div className="w-80 m-h-[44rem] md:w-auto max-w-3xl rounded-xl border shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-wrap md:flex-nowrap">
+      <div className="relative h-[20rem] w-[20rem]">
         {typeof image !== 'string' && image?.url && (
           <Image src={image.url} alt={image.alt} fill className="object-contain" />
         )}
       </div>
 
-      {/* Right Side: Heading and Content */}
-      <div className="w-2/3 p-6 flex flex-col justify-center">
-        <h2 className="text-box-heading">{heading}</h2>
-        <p className="mt-4 text-gray-600 leading-relaxed">{content}</p>
+      <div className="w-[30rem] md:w-[60%] flex flex-col justify-center">
+        <h2 className="text-paragraph-bold text-3xl">{heading}</h2>
+        <p className="text-paragraph">{content}</p>
       </div>
     </div>
   )
