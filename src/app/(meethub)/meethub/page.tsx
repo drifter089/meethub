@@ -43,7 +43,7 @@ const page = async () => {
   })
 
   return (
-    <div className="w-[100vw] overflow-hidden">
+    <>
       {landingPage.layout &&
         landingPage.layout.length > 0 &&
         landingPage.layout.map((block) => {
@@ -60,11 +60,11 @@ const page = async () => {
               />
             )
           } else if (block.blockType === 'Social') {
-            return <Socials key={block.id}/>
+            return <Socials key={block.id} />
           }
           return null
         })}
-    </div>
+    </>
   )
 }
 
