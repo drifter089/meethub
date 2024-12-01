@@ -15,14 +15,14 @@ const HorizontalCard: CollectionConfig = {
       relationTo: 'media',
     },
     {
+      name: 'heading',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'content',
-      type: 'richText',
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
-        },
-      }),
-      label: false,
+      type: 'textarea',
+      label: 'Content',
       required: true,
     },
   ],
