@@ -13,8 +13,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="m-0 p-0 overflow-x-hidden">
-        <div className="h-[10vh]"></div>
+      <body>
+        <div className="h-[10vh] w-full"></div>
         {children}
       </body>
     </html>
