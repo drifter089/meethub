@@ -15,17 +15,19 @@ const Socials = async () => {
   })
   console.log('platform', platforms)
   return (
-    <div className="flex flex-col items-center gap-4">
-      <TextSection 
-        heading="Socials" 
-        paragraph="Follow us" 
+    <>
+      <TextSection
+        heading="Socials"
+        paragraph="Follow us"
       />
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
         {platforms.docs.map((platform) => (
-          <PlatformIconLink key={platform.id} image={platform.image} link={platform.link} /> 
+          <PlatformIconLink key={platform.id} image={platform.image} link={platform.link} />
         ))}
       </div>
-    </div>
+    </>
+
+
   )
 }
 
