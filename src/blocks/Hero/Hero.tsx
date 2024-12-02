@@ -22,7 +22,7 @@ const LandingHeroComp: React.FC<LandingHero> = ({
         ) : (
           <h2 className="text-subheading">{heading}</h2>
         )}
-        <p className="text-paragraph">{content}</p>
+        <p className="text-subparagraph">{content}</p>
         {reverse === false ? <Button variant="default">See Events</Button> : <></>}
       </div>
       <div className="relative h-[40vh] sm:h-[40vh] md:h-[60vh] lg:min-h-[50vh] w-full lg:w-[45%]">

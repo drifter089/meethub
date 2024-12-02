@@ -20,7 +20,7 @@ const Socials = async () => {
         heading="Socials"
         paragraph="Follow us"
       />
-      <div className="flex default-x-padding flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+      <div className="flex items-center gap-4 flex-row flex-wrap justify-center default-x-padding">
         {platforms.docs.map((platform) => (
           <PlatformIconLink key={platform.id} image={platform.image} link={platform.link} />
         ))}
