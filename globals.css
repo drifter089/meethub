@@ -78,6 +78,10 @@ body {
     @apply font-bold text-5xl leading-normal;
   }
 
+  .text-title-bold {
+    @apply text-3xl font-bold leading-normal;
+  }
+
   .text-paragraph {
     @apply text-2xl font-normal leading-normal;
   }
