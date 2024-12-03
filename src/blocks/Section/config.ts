@@ -20,14 +20,6 @@ export const Section: Block = {
       options: [
         { label: 'Carousel', value: 'carousel' },
         { label: 'Basic', value: 'basic' },
-        // {
-        //   label: 'Upcoming Events',
-        //   value: 'upcomingevents',
-        // },
-        // {
-        //   label: 'Past Events',
-        //   value: 'pastevents',
-        // },
       ],
       required: true,
     },
