@@ -12,7 +12,7 @@ const HorizantalCard: React.FC<Horizontalcard> = ({ heading, content, image }) =
       </div>
 
       <div className="w-[30rem] md:w-[60%] flex flex-col justify-center">
-        <h2 className="text-paragraph-bold text-3xl">{heading}</h2>
+        <h2 className="text-title-bold text-3xl">{heading}</h2>
         <p className="text-paragraph">{content}</p>
       </div>
     </div>
