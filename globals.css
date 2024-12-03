@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -54,7 +54,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
 }
 
@@ -62,22 +62,21 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 @layer utilities {
-  .default-x-padding{
+  .default-x-padding {
     @apply px-6 sm:px-10 md:px-20 lg:px-20 xl:px-40 2xl:px-60 box-border;
   }
 
   .text-heading {
     @apply font-bold text-primary text-6xl md:text-6xl leading-normal;
   }
-  
   .text-subheading {
     @apply font-bold text-5xl leading-normal;
   }
 
   .text-title-bold {
     @apply text-3xl font-bold leading-normal;
-  } 
-  
+  }
+
   .text-paragraph {
     @apply text-2xl font-normal leading-normal;
   }
@@ -101,7 +100,6 @@ body {
   .text-subparagraph-muted {
     @apply text-subparagraph text-muted-foreground;
   }
-
 }
 
 @layer base {

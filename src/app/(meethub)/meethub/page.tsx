@@ -3,7 +3,8 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import LandingHeroComp from '@/blocks/Hero/Hero'
 import Socials from '@/blocks/Socials/Socials'
-
+import HorizontalCard from '@/collections/HorizontalCards/HorizontalCardComponent'
+import Section from '@/blocks/Section/Section'
 // const page = async () => {
 //   const payload = await getPayload({ config: configPromise })
 
@@ -61,6 +62,8 @@ const page = async () => {
             )
           } else if (block.blockType === 'Social') {
             return <Socials key={block.id} />
+          } else if (block.blockType === 'section') {
+            return <Section key={block.id}></Section>
           }
           return null
         })}

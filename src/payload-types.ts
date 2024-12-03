@@ -50,9 +50,9 @@ export interface Config {
   user: User & {
     collection: 'users';
   };
-  jobs: {
+  jobs?: {
     tasks: unknown;
-    workflows: unknown;
+    workflows?: unknown;
   };
 }
 export interface UserAuthOperations {
@@ -183,21 +183,8 @@ export interface Attendee {
 export interface Horizontalcard {
   id: string;
   image?: (string | null) | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  heading: string;
+  content: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -409,6 +396,7 @@ export interface AttendeesSelect<T extends boolean = true> {
  */
 export interface HorizontalcardsSelect<T extends boolean = true> {
   image?: T;
+  heading?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -466,7 +454,7 @@ export interface Home {
         | LandingHero
         | {
             backgroundColor: 'primary' | 'secondary';
-            component: 'carousel' | 'basic' | 'upcomingevents' | 'pastevents';
+            component: 'carousel' | 'basic';
             cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
             id?: string | null;
             blockName?: string | null;
