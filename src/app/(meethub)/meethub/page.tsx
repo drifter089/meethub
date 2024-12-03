@@ -61,7 +61,7 @@ const page = async () => {
               />
             )
           } else if (block.blockType === 'Social') {
-            return <Socials key={block.id} />
+            return <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} />
           } else if (block.blockType === 'section') {
             return <Section key={block.id}></Section>
           }

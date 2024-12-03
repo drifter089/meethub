@@ -5,7 +5,7 @@ import { getPayload } from 'payload'
 import PlatformIconLink from '@/collections/Platforms/PlatformIconLink'
 import TextSection from '@/components/ui/headingSection'
 
-const Socials = async () => {
+const Socials = async ({ backgroundColor }: { backgroundColor: string }) => {
   const payload = await getPayload({ config: configPromise })
 
   const platforms = await payload.find({
@@ -13,9 +13,10 @@ const Socials = async () => {
     draft: false,
     limit: 1000,
   })
-  console.log('platform', platforms)
+  console.log('platform', platforms, backgroundColor)
   return (
-    <>
+    < div
+  className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} default-x-padding pt-12 pb-24`}>
       <TextSection
         heading="Socials"
         paragraph="Follow us"
@@ -25,7 +26,7 @@ const Socials = async () => {
           <PlatformIconLink key={platform.id} image={platform.image} link={platform.link} />
         ))}
       </div>
-    </>
+    </div>
 
 
   )

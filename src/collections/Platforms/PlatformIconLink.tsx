@@ -12,7 +12,7 @@ const PlatformIconLink: React.FC<PlatformIconLinkProps> = ({ image, link }) => {
   const imageUrl = typeof image === 'string' ? image : image?.url || '/default-icon.png';
 
   return (
-    <div className="items-center justify-center w-[15.25rem] h-[15.25rem] sm:w-[9rem] sm:h-[9rem] bg-gray-100 rounded-full hover:bg-gray-200 transition">
+    <div className="items-center justify-center w-[9rem] h-[9rem] bg-gray-100 rounded-full hover:bg-gray-200 transition">
       <a
         href={link}
         target="_blank"

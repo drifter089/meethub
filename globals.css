@@ -66,6 +66,10 @@ body {
     @apply px-6 sm:px-10 md:px-20 lg:px-20 xl:px-40 2xl:px-60 box-border;
   }
 
+  .default-y-padding{
+    @apply py-6;
+  }
+
   .text-heading {
     @apply font-bold text-primary text-6xl md:text-6xl leading-normal;
   }
