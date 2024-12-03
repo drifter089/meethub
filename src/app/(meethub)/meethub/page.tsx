@@ -45,31 +45,28 @@ const page = async () => {
 
   return (
     <>
-      <div className="w-[100vw] overflow-hidden">
-        {landingPage.layout &&
-          landingPage.layout.length > 0 &&
-          landingPage.layout.map((block) => {
-            if (block.blockType === 'Hero') {
-              return (
-                <LandingHeroComp
-                  blockType="Hero"
-                  backgroundColor={block.backgroundColor || 'primary'}
-                  heading={block.heading}
-                  content={block.content}
-                  image={block.image}
-                  reverse={block.reverse}
-                  key={block.id}
-                />
-              )
-            } else if (block.blockType === 'Social') {
-              return <Socials key={block.id} />
-            }
-            return null
-          })}
-        <>
-          <Section></Section>
-        </>
-      </div>
+      {landingPage.layout &&
+        landingPage.layout.length > 0 &&
+        landingPage.layout.map((block) => {
+          if (block.blockType === 'Hero') {
+            return (
+              <LandingHeroComp
+                blockType="Hero"
+                backgroundColor={block.backgroundColor || 'primary'}
+                heading={block.heading}
+                content={block.content}
+                image={block.image}
+                reverse={block.reverse}
+                key={block.id}
+              />
+            )
+          } else if (block.blockType === 'Social') {
+            return <Socials key={block.id} />
+          } else if (block.blockType === 'section') {
+            return <Section key={block.id}></Section>
+          }
+          return null
+        })}
     </>
   )
 }

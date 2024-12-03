@@ -69,11 +69,6 @@ body {
   .text-heading {
     @apply font-bold text-primary text-6xl md:text-6xl leading-normal;
   }
-
-  .text-box-heading {
-    @apply font-bold text-primary text-2xl md:text-xl leading-normal;
-  }
-
   .text-subheading {
     @apply font-bold text-5xl leading-normal;
   }
