@@ -8,31 +8,64 @@
 // }
 
 
-html { &[data-theme=dark] {
-    --theme-elevation-0: rgb(24, 20, 48);
-    --theme-elevation-50: rgb(37, 33, 61);
-    --theme-elevation-100: rgb(50, 46, 74);
-    --theme-elevation-150: rgb(63, 59, 87);
-    --theme-elevation-200: rgb(76, 72, 100);
-    --theme-elevation-250: rgb(89, 85, 113);
-    --theme-elevation-300: rgb(102, 98, 126);
-    --theme-elevation-350: rgb(115, 111, 139);
-    --theme-elevation-400: rgb(128, 124, 152);
-    --theme-elevation-450: rgb(141, 137, 165);
-    --theme-elevation-550: rgb(154, 150, 178);
-    --theme-elevation-600: rgb(167, 163, 191);
-    --theme-elevation-650: rgb(180, 176, 204);
-    --theme-elevation-700: rgb(193, 189, 217);
-    --theme-elevation-750: rgb(206, 202, 230);
-    --theme-elevation-800: rgb(219, 215, 243);
-    --theme-elevation-850: rgb(232, 228, 255);
-    --theme-elevation-900: rgb(255, 255, 255);
-    --theme-elevation-950: rgb(255, 255, 255);
-    --theme-elevation-1000: rgb(255, 255, 255);
 
-    --theme-bg: rgb(24, 20, 48);
+html {
+  &[data-theme=dark] {
+    --theme-elevation-0: rgb(30, 25, 80);    /* Step 0 (Darkest) */
+    --theme-elevation-50: rgb(35, 30, 85);   /* Step 1 */
+    --theme-elevation-100: rgb(40, 35, 90);  /* Step 2 */
+    --theme-elevation-150: rgb(45, 40, 95);  /* Step 3 */
+    --theme-elevation-200: rgb(50, 45, 100); /* Step 4 */
+    --theme-elevation-250: rgb(55, 50, 105); /* Step 5 */
+    --theme-elevation-300: rgb(60, 55, 110); /* Step 6 */
+    --theme-elevation-350: rgb(65, 60, 115); /* Step 7 */
+    --theme-elevation-400: rgb(70, 65, 120); /* Step 8 */
+    --theme-elevation-450: rgb(75, 70, 125); /* Step 9 */
+    --theme-elevation-500: rgb(90, 85, 135); /* Step 10 */
+    --theme-elevation-550: rgb(110, 105, 150); /* Step 11 */
+    --theme-elevation-600: rgb(130, 125, 165); /* Step 12 */
+    --theme-elevation-650: rgb(160, 155, 185); /* Step 13 */
+    --theme-elevation-700: rgb(190, 185, 205); /* Step 14 */
+    --theme-elevation-750: rgb(215, 210, 230); /* Step 15 */
+    --theme-elevation-800: rgb(230, 225, 240); /* Step 16 */
+    --theme-elevation-850: rgb(240, 235, 245); /* Step 17 */
+    --theme-elevation-900: rgb(250, 245, 250); /* Step 18 */
+    --theme-elevation-950: rgb(255, 255, 255); /* Step 19 (White) */
+    --theme-elevation-1000: rgb(255, 255, 255); /* Pure white */
+    --theme-bg: rgb(30, 25, 80);   /* Base background */
+  }
+
+
+  &[data-theme=light] {
+    
+    --theme-elevation-0: rgb(255, 255, 255);    /* Step 0 (White) */
+    --theme-elevation-50: rgb(240, 245, 250);   /* Step 1 */
+    --theme-elevation-100: rgb(225, 235, 245);  /* Step 2 */
+    --theme-elevation-150: rgb(210, 225, 240);  /* Step 3 */
+    --theme-elevation-200: rgb(195, 215, 235);  /* Step 4 */
+    --theme-elevation-250: rgb(180, 205, 230);  /* Step 5 */
+    --theme-elevation-300: rgb(165, 190, 215);  /* Step 6 */
+    --theme-elevation-350: rgb(140, 170, 200);  /* Step 7 */
+    --theme-elevation-400: rgb(115, 150, 185);  /* Step 8 */
+    --theme-elevation-450: rgb(90, 130, 165);   /* Step 9 */
+    --theme-elevation-500: rgb(70, 100, 140);   /* Step 10 */
+    --theme-elevation-550: rgb(60, 85, 120);    /* Step 11 */
+    --theme-elevation-600: rgb(50, 70, 100);    /* Step 12 */
+    --theme-elevation-650: rgb(40, 55, 90);     /* Step 13 */
+    --theme-elevation-700: rgb(35, 40, 85);     /* Step 14 */
+    --theme-elevation-750: rgb(32, 35, 82);     /* Step 15 */
+    --theme-elevation-800: rgb(30, 25, 80);     /* Step 16 */
+    --theme-elevation-850: rgb(28, 22, 75);     /* Step 17 */
+    --theme-elevation-900: rgb(26, 21, 72);     /* Step 18 */
+    --theme-elevation-950: rgb(24, 19, 70);     /* Step 19 (Darker bluish-purple) */
+    --theme-elevation-1000: rgb(24, 19, 70);    /* Darker bluish-purple */
+  
+
+     --theme-bg: rgb(255, 255, 255);  /* Base background */
   }
 }
+
+
 
 body, h2, h5 {
   font-family: 'Poppins';
@@ -53,21 +86,21 @@ body, h2, h5 {
 
 .btn {
   &--style-primary {
-    background-color: rgb(158, 4, 81);
+    background-color: rgb(255, 0, 157);
     color: rgb(255, 255, 255);
   }
 
   &--style-primary.btn--disabled {
-    background-color: rgb(158, 4, 81);
+    background-color: rgb(255, 0, 157);
   }
 
   &--disabled {
-    background-color: rgb(158, 4, 81);
+    background-color: rgb(255, 0, 157);
   }
 }
 
 .login .logo path {
-  fill: rgb(158, 4, 81);
+  fill: rgb(255, 0, 157);
 }
 
 
@@ -75,7 +108,7 @@ body, h2, h5 {
 .template-default {
   .nav {
     &__brand .icon path {
-      fill: rgb(158, 4, 81);
+      fill: rgb(255, 0, 157);
     }
   }
   
@@ -84,13 +117,13 @@ body, h2, h5 {
     .banner {
       // BEM modifier selector (.banner--type-success)
       &--type-success {
-        background: rgb(158, 4, 81);
+        background: rgb(255, 0, 157);
         color: white;
       }
 
       // BEM element selector (.banner__content)
       &__content svg {
-        background-color: #2A2544;
+        background-color: rgb(46, 30, 120);
       }
     }
   }
