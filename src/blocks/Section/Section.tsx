@@ -12,7 +12,7 @@ const Section = async () => {
   })
 
   return (
-    <div>
+    <>
       {collectionsData?.docs?.length > 0 &&
         collectionsData.docs.map((block) => (
           <HorizontalCard
@@ -25,7 +25,7 @@ const Section = async () => {
             createdAt={''}
           />
         ))}
-    </div>
+    </>
   )
 }
 export default Section
