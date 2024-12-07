@@ -13,10 +13,10 @@ import Platforms from './collections/Platforms/Platforms'
 import { Posts } from './collections/CreateEvents'
 import Venues from './collections/Venues/Venues'
 import Attendees from './collections/Attendees'
-import page from './app/(meethub)/meethub/page'
-import Page from './collections/Page'
+import Page from './globals/Page'
 import HorizontalCard from './collections/HorizontalCards/HorizontalCards'
 import VerticalCards from './collections/VerticalCards/VerticalCards'
+import Header from './globals/NavBar/Header'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -47,7 +47,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Platforms, Posts, Venues, Attendees, HorizontalCard, VerticalCards],
-  globals: [Page],
+  globals: [Header, Page],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
