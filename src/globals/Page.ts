@@ -13,7 +13,8 @@ const Page: GlobalConfig = {
     {
       name: 'layout',
       type: 'blocks',
-
+      required: true,
+      maxRows: 12,
       blocks: [Hero, Section, Social],
     },
   ],

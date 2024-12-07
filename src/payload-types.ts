@@ -468,25 +468,23 @@ export interface Header {
  */
 export interface Home {
   id: string;
-  layout?:
-    | (
-        | LandingHero
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            component: 'carousel' | 'basic';
-            cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'section';
-          }
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'Social';
-          }
-      )[]
-    | null;
+  layout: (
+    | LandingHero
+    | {
+        backgroundColor: 'primary' | 'secondary';
+        component: 'carousel' | 'basic';
+        cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'section';
+      }
+    | {
+        backgroundColor: 'primary' | 'secondary';
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'Social';
+      }
+  )[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
