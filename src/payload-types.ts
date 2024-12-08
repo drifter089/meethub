@@ -468,6 +468,7 @@ export interface Header {
  */
 export interface Home {
   id: string;
+  image?: (string | null) | Media;
   layout?:
     | (
         | LandingHero
@@ -526,6 +527,7 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
+  image?: T;
   layout?:
     | T
     | {

@@ -1,3 +1,4 @@
+import LandingPageNavigation from '@/components/ui/LandingPageNavigation'
 import '../../../../globals.css'
 
 
@@ -15,6 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {/* <div className="h-[10vh] w-full"></div> */}
+        <LandingPageNavigation/>
         {children}
       </body>
     </html>

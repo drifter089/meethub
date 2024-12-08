@@ -5,62 +5,22 @@ import LandingHeroComp from '@/blocks/Hero/Hero'
 import Socials from '@/blocks/Socials/Socials'
 import HorizontalCard from '@/collections/HorizontalCards/HorizontalCardComponent'
 import Section from '@/blocks/Section/Section'
-import LandingPageNavigation from '@/components/ui/LandingPageNavigation'
-// const page = async () => {
-//   const payload = await getPayload({ config: configPromise })
-
-//   const landingPage = await payload.findGlobal({
-//     slug: 'home',
-//   })
-
-//   console.log('home', landingPage)
-
-//   return (
-//     <LandingHeroComp
-//       backgroundColor={landingPage?.layout?.[0]?.backgroundColor || 'primary'}
-//       heading={(landingPage?.layout?.[0] as any)?.heading}
-//       content={
-//         'content' in (landingPage?.layout?.[0] || {})
-//           ? (landingPage?.layout?.[0] as any)?.content
-//           : undefined
-//       }
-//       image={
-//         'image' in (landingPage?.layout?.[0] || {})
-//           ? (landingPage?.layout?.[0] as any)?.image
-//           : undefined
-//       }
-//       reverse={
-//         'reverse' in (landingPage?.layout?.[0] || {})
-//           ? (landingPage?.layout?.[0] as any)?.reverse
-//           : undefined
-//       }
-//     />
-//   )
-// }
 const page = async () => {
   const payload = await getPayload({ config: configPromise })
 
   const landingPage = await payload.findGlobal({
     slug: 'home',
   })
-
-  console.log("landingPage", landingPage);
-  const layout = landingPage?.layout || [];
+  console.log("layout", landingPage);
   return (
     <>
-      {/* Header with the navigation */}
-      <header className='default-x-padding default-y-padding header'>
-        <LandingPageNavigation layout={layout} />
-      </header>
-
-      {/* Render Layout Blocks */}
-      {layout.length > 0 &&
-        layout.map((block) => {
-          const sectionId = block.blockName ? `section-${block.blockName}` : undefined;
-
+      {landingPage.layout &&
+        landingPage.layout.length > 0 &&
+        landingPage.layout.map((block) => {
+          const sectionId = block.blockName ? `section-${block.blockName}` : `section-${block.id}`;
           if (block.blockType === 'Hero') {
             return (
-              <section id={sectionId} key={block.id}>
+              <div id={sectionId}>
                 <LandingHeroComp
                   blockType="Hero"
                   backgroundColor={block.backgroundColor || 'primary'}
@@ -68,22 +28,27 @@ const page = async () => {
                   content={block.content}
                   image={block.image}
                   reverse={block.reverse}
+                  key={block.id}
                 />
-              </section>
-            );
+              </div>
+            )
           } else if (block.blockType === 'Social') {
-            return (
-              <section id={sectionId} key={block.id}>
-                <Socials backgroundColor={block.backgroundColor || 'primary'} />
-              </section>
-            );
+            return(
+            <div id={sectionId}>
+              <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} />
+            </div>
+            )
           } else if (block.blockType === 'section') {
-            return <section id={sectionId} key={block.id}><Section /></section>;
+            return(
+            <div id={sectionId}>
+              <Section key={block.id}></Section>
+            </div>
+            )
           }
-          return null;
+          return null
         })}
     </>
-  );
+  )
 }
 
 export default page

@@ -1,35 +1,56 @@
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink } from "./navigation-menu"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./navigation-menu";
+import { getPayload } from 'payload';
+import configPromise from '@payload-config';
+import NavBarComponent from "@/globals/NavBar/NavBarComponent";
+import Image from "next/image";
 
-type LayoutBlock = {
-    id?: string | null | undefined;
-    blockName?: string | null | undefined;
-    blockType: 'Hero' | 'Social' | 'section' | string;
-  };
-  
-interface LandingPageNavigationProps {
-    layout: (LayoutBlock & { blockType: string })[];
-  }
+const payload = await getPayload({ config: configPromise })
 
-const LandingPageNavigation: React.FC<LandingPageNavigationProps> = ({ layout }) => {
+const landingPage = await payload.findGlobal({
+  slug: 'home',
+})
+
+console.log("landingPage", landingPage);
+const layout = landingPage?.layout || [];
+
+const LandingPageNavigation = () => {
   return (
-    <NavigationMenu className="justify-end">
-      <div className="flex space-x-4">
-        {layout?.map((block) => {
-          const sectionId = block.blockName ? `#section-${block.blockName}` : undefined;
-          if (sectionId) {
-            return (
-              <NavigationMenuItem key={block.id}>
-                <NavigationMenuLink href={sectionId} className="text-blue-500 hover:text-blue-700 font-semibold transition duration-200">
-                  {block.blockName}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            );
-          }
-          return null;
-        })}
+    <div className="flex items-center justify-between h-[10vh] w-full px-4 my-4">
+      {/* Image Section */}
+      <div className="h-full flex items-center">
+        {typeof landingPage.image !== 'string' && landingPage.image?.url && (
+          <Image
+            src={landingPage.image.url}
+            alt={landingPage.image.alt}
+            className="h-full object-contain"
+            width={248}
+            height={77}
+          />
+        )}
       </div>
-    </NavigationMenu>
+
+      {/* Navigation Section */}
+      <NavigationMenu className="hidden md:flex items-center justify-end h-full">
+        {/* Links only appear on medium and larger screens */}
+        <NavigationMenuList className="flex items-center space-x-4">
+          {layout?.map((block) => {
+            const sectionId = block.blockName ? `#section-${block.blockName}` : undefined;
+            if (sectionId) {
+              return (
+                <NavBarComponent
+                  key={block.id}
+                  name={block.blockName}
+                  navigationLink={sectionId}
+                />
+              );
+            }
+            return null;
+          })}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
+
 };
 
 export default LandingPageNavigation;

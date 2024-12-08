@@ -11,9 +11,14 @@ const Page: GlobalConfig = {
   label: 'Home Page',
   fields: [
     {
+      name: 'image',
+      label: 'Logo',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'layout',
       type: 'blocks',
-
       blocks: [Hero, Section, Social],
     },
   ],
