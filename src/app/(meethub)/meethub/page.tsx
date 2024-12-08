@@ -5,6 +5,7 @@ import LandingHeroComp from '@/blocks/Hero/Hero'
 import Socials from '@/blocks/Socials/Socials'
 import HorizontalCard from '@/collections/HorizontalCards/HorizontalCardComponent'
 import Section from '@/blocks/Section/Section'
+import LandingPageNavigation from '@/components/ui/LandingPageNavigation'
 // const page = async () => {
 //   const payload = await getPayload({ config: configPromise })
 
@@ -43,32 +44,46 @@ const page = async () => {
     slug: 'home',
   })
 
+  console.log("landingPage", landingPage);
+  const layout = landingPage?.layout || [];
   return (
     <>
-      {landingPage.layout &&
-        landingPage.layout.length > 0 &&
-        landingPage.layout.map((block) => {
+      {/* Header with the navigation */}
+      <header className='default-x-padding default-y-padding header'>
+        <LandingPageNavigation layout={layout} />
+      </header>
+
+      {/* Render Layout Blocks */}
+      {layout.length > 0 &&
+        layout.map((block) => {
+          const sectionId = block.blockName ? `section-${block.blockName}` : undefined;
+
           if (block.blockType === 'Hero') {
             return (
-              <LandingHeroComp
-                blockType="Hero"
-                backgroundColor={block.backgroundColor || 'primary'}
-                heading={block.heading}
-                content={block.content}
-                image={block.image}
-                reverse={block.reverse}
-                key={block.id}
-              />
-            )
+              <section id={sectionId} key={block.id}>
+                <LandingHeroComp
+                  blockType="Hero"
+                  backgroundColor={block.backgroundColor || 'primary'}
+                  heading={block.heading}
+                  content={block.content}
+                  image={block.image}
+                  reverse={block.reverse}
+                />
+              </section>
+            );
           } else if (block.blockType === 'Social') {
-            return <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} />
+            return (
+              <section id={sectionId} key={block.id}>
+                <Socials backgroundColor={block.backgroundColor || 'primary'} />
+              </section>
+            );
           } else if (block.blockType === 'section') {
-            return <Section key={block.id}></Section>
+            return <section id={sectionId} key={block.id}><Section /></section>;
           }
-          return null
+          return null;
         })}
     </>
-  )
+  );
 }
 
 export default page

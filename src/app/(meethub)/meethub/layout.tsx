@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        <div className="h-[10vh] w-full"></div>
+        {/* <div className="h-[10vh] w-full"></div> */}
         {children}
       </body>
     </html>

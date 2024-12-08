@@ -104,6 +104,11 @@ body {
   .text-subparagraph-muted {
     @apply text-subparagraph text-muted-foreground;
   }
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px; 
+  }
 }
 
 @layer base {
