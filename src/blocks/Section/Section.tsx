@@ -2,12 +2,18 @@ import HorizontalCard from '@/collections/HorizontalCards/HorizontalCardComponen
 import React from 'react'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
+import VerticalCardComponent from '@/collections/VerticalCards/VerticalCardComponent'
 
 const Section = async () => {
   const payload = await getPayload({ config: configPromise })
 
   const collectionsData = await payload.find({
     collection: 'horizontalcards',
+    limit: 1000,
+  })
+
+  const eventsData = await payload.find({
+    collection: 'posts',
     limit: 1000,
   })
 
@@ -25,6 +31,8 @@ const Section = async () => {
             createdAt={''}
           />
         ))}
+      {eventsData?.docs?.length > 0 &&
+        eventsData.docs.map((block) => <VerticalCardComponent props={block} key={block.id} />)}
     </>
   )
 }
