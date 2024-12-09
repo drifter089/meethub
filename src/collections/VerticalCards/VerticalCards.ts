@@ -13,21 +13,29 @@ const VerticalCards: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      admin: {
-        position: 'sidebar',
-      },
+    },
+    {
+      name: 'headline',
+      type: 'text',
+      required: true,
     },
     {
       name: 'content',
-      type: 'richText',
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
-        },
-      }),
-      label: false,
+      type: 'textarea',
+      label: 'Content',
       required: true,
     },
+    {
+      name: 'date',
+      type: 'date',
+      admin: {
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+        // readOnly: true,
+        position: 'sidebar',
+      },
+    }
   ],
 }
 
