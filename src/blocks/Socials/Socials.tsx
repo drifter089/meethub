@@ -13,22 +13,18 @@ const Socials = async ({ backgroundColor }: { backgroundColor: string }) => {
     draft: false,
     limit: 1000,
   })
-  console.log('platform', platforms, backgroundColor)
+
   return (
-    < div
-  className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} default-x-padding pt-12 pb-24`}>
-      <TextSection
-        heading="Socials"
-        paragraph="Follow us"
-      />
+    <div
+      className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} default-x-padding pt-12 pb-24`}
+    >
+      <TextSection heading="Socials" paragraph="Follow us" backgroundColor={backgroundColor} />
       <div className="flex items-center gap-4 flex-row flex-wrap justify-center default-x-padding">
         {platforms.docs.map((platform) => (
           <PlatformIconLink key={platform.id} image={platform.image} link={platform.link} />
         ))}
       </div>
     </div>
-
-
   )
 }
 

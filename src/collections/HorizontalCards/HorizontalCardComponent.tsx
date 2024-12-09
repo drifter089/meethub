@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const HorizantalCard: React.FC<Horizontalcard> = ({ heading, content, image }) => {
   return (
-    <div className="w-[20rem] md:w-auto max-w-3xl rounded-[2.5rem] overflow-hidden border shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-wrap md:flex-nowrap">
+    <div className="w-[20rem] md:w-[50rem] rounded-[2.5rem] overflow-hidden border shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-wrap md:flex-nowrap">
       <div className="relative h-[20rem] w-[20rem]">
         {typeof image !== 'string' && image?.url && (
           <Image src={image.url} alt={image.alt} fill className="object-cover" />

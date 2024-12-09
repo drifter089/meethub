@@ -65,14 +65,14 @@ export const getLexicalFromMarkDown = async ({ markdownString }: Props) => {
   editor.update(
     () => {
       // Convert Markdown to editor state
-      console.log('markdownString', markdownString)
+      
       $convertFromMarkdownString(markdownString, transformers)
     },
     { discrete: true },
   )
 
   const editorState = editor.getEditorState()
-  console.log('Editor State:', editorState.toJSON())
+  )
 
   return editorState
 }
