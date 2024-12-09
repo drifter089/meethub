@@ -34,11 +34,14 @@ const Section = async () => {
       {eventsData?.docs?.length > 0 &&
         eventsData.docs.map((block) => (
           <VerticalCardComponent
+            updatedAt={block.updatedAt}
+            createdAt={block.createdAt}
             key={block.id}
             image={block?.image}
-            date={block?.createdAt}
+            date={block?.eventDateTime}
             headline={block?.title}
             content={block?.content}
+            id={block.id}
           />
         ))}
     </>
