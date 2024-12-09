@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Verticalcard } from '@/payload-types'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 
 const VerticalCard: React.FC<Verticalcard> = ({image , content , headline , date }) => {
   // console.log(data);
@@ -21,10 +22,12 @@ const VerticalCard: React.FC<Verticalcard> = ({image , content , headline , date
         {/* <p className="text-sm text-gray-500 mb-2">{}</p> */}
 
         {/* Headline */}
-        <h2 className="text-xl font-bold text-gray-800 mb-4">{headline}</h2>
-
+        <h2 className="text-title-bold">{headline}</h2>
         {/* Content */}
-        {/* <p className="text-gray-600 leading-relaxed">{content}</p> */}
+        <p className="text-paragraph">{content}</p>
+
+        <Button variant="secondary">RSVP</Button>
+
       </div>
     </div>
   )

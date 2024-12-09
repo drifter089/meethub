@@ -16,9 +16,7 @@ const Section = async () => {
     collection: 'posts',
     limit: 1000,
   })
-
-  console.log(eventsData , "hugh");
-
+  console.log(eventsData, 'hugh')
   return (
     <>
       {collectionsData?.docs?.length > 0 &&
@@ -34,7 +32,15 @@ const Section = async () => {
           />
         ))}
       {eventsData?.docs?.length > 0 &&
-        eventsData.docs.map((block) => <VerticalCardComponent content={block?.content} key={block.id} image={block?.image} date={block?.createdAt} headline={block?.title}/>)}
+        eventsData.docs.map((block) => (
+          <VerticalCardComponent
+            key={block.id}
+            image={block?.image}
+            date={block?.createdAt}
+            headline={block?.title}
+            content={block?.content}
+          />
+        ))}
     </>
   )
 }
