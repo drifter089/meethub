@@ -17,10 +17,9 @@ const page = async () => {
       {landingPage.layout &&
         landingPage.layout.length > 0 &&
         landingPage.layout.map((block) => {
-          const sectionId = block.blockName ? `section-${block.blockName}` : `section-${block.id}`;
+          const sectionId = block.blockName ? block.blockName : block.id;
           if (block.blockType === 'Hero') {
             return (
-              <div id={sectionId}>
                 <LandingHeroComp
                   blockType="Hero"
                   backgroundColor={block.backgroundColor || 'primary'}
@@ -29,20 +28,23 @@ const page = async () => {
                   image={block.image}
                   reverse={block.reverse}
                   key={block.id}
+                  blockName={sectionId}
                 />
-              </div>
             )
           } else if (block.blockType === 'Social') {
             return(
-            <div id={sectionId}>
-              <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} />
-            </div>
+              <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} blockName={sectionId} />
             )
           } else if (block.blockType === 'section') {
             return(
-            <div id={sectionId}>
-              <Section key={block.id}></Section>
-            </div>
+              <Section
+                key={block.id}
+                backgroundColor={block.backgroundColor}
+                component={block.component}
+                cards={block.cards}
+                blockType={block.blockType}
+                blockName={sectionId}
+              />
             )
           }
           return null

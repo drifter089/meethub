@@ -5,7 +5,7 @@ import { getPayload } from 'payload'
 import PlatformIconLink from '@/collections/Platforms/PlatformIconLink'
 import TextSection from '@/components/ui/headingSection'
 
-const Socials = async ({ backgroundColor }: { backgroundColor: string }) => {
+const Socials = async ({ backgroundColor, blockName }: { backgroundColor: string, blockName: string| null| undefined }) => {
   const payload = await getPayload({ config: configPromise })
 
   const platforms = await payload.find({
@@ -15,7 +15,7 @@ const Socials = async ({ backgroundColor }: { backgroundColor: string }) => {
   })
 
   return (
-    <div
+    <div id = {blockName || ''}
       className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} default-x-padding pt-12 pb-24`}
     >
       <TextSection heading="Socials" paragraph="Follow us" backgroundColor={backgroundColor} />

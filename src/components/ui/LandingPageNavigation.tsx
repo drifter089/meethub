@@ -15,10 +15,10 @@ const layout = landingPage?.layout || [];
 
 const LandingPageNavigation = () => {
   return (
-    <div className="flex items-center justify-between h-[10vh] w-full px-4 my-4">
-      {/* Image Section */}
-      <div className="h-full flex items-center">
-        {typeof landingPage.image !== 'string' && landingPage.image?.url && (
+    <NavigationMenu className="flex items-center justify-between h-[10vh] w-full px-4 my-4">
+      {/* Image Section on the left for larger screens, centered on smaller screens */}
+      {typeof landingPage.image !== 'string' && landingPage.image?.url && (
+        <div className="flex items-center justify-center md:justify-start w-full md:w-auto">
           <Image
             src={landingPage.image.url}
             alt={landingPage.image.alt}
@@ -26,31 +26,27 @@ const LandingPageNavigation = () => {
             width={248}
             height={77}
           />
-        )}
-      </div>
-
-      {/* Navigation Section */}
-      <NavigationMenu className="hidden md:flex items-center justify-end h-full">
-        {/* Links only appear on medium and larger screens */}
-        <NavigationMenuList className="flex items-center space-x-4">
-          {layout?.map((block) => {
-            const sectionId = block.blockName ? `#section-${block.blockName}` : undefined;
-            if (sectionId) {
-              return (
-                <NavBarComponent
-                  key={block.id}
-                  name={block.blockName}
-                  navigationLink={sectionId}
-                />
-              );
-            }
-            return null;
-          })}
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+        </div>
+      )}
+    
+      {/* Navigation Section on the right */}
+      <NavigationMenuList className="hidden md:flex items-center space-x-4">
+        {layout?.map((block) => {
+          const sectionId = block.blockName ? block.blockName : undefined;
+          if (sectionId) {
+            return (
+              <NavBarComponent
+                key={block.id}
+                name={block.blockName}
+                navigationLink={sectionId}
+              />
+            );
+          }
+          return null;
+        })}
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-
 };
 
 export default LandingPageNavigation;
