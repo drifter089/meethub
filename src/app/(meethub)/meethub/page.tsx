@@ -12,7 +12,7 @@ import Section from '@/blocks/Section/Section'
 //     slug: 'home',
 //   })
 
-//   console.log('home', landingPage)
+//   
 
 //   return (
 //     <LandingHeroComp
@@ -43,6 +43,8 @@ const page = async () => {
     slug: 'home',
   })
 
+  
+
   return (
     <>
       {landingPage.layout &&
@@ -63,7 +65,15 @@ const page = async () => {
           } else if (block.blockType === 'Social') {
             return <Socials key={block.id} backgroundColor={block.backgroundColor || 'primary'} />
           } else if (block.blockType === 'section') {
-            return <Section key={block.id}></Section>
+            return (
+              <Section
+                key={block.id}
+                backgroundColor={block.backgroundColor}
+                component={block.component}
+                cards={block.cards}
+                blockType={block.blockType}
+              />
+            )
           }
           return null
         })}
