@@ -12,7 +12,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const EventHost = ({ imageLink, name }: { imageLink: string; name: string }) => {
-  console.log('EventHost', imageLink, name)
   return (
     <>
       <Card>

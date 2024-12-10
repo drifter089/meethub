@@ -462,14 +462,7 @@ export interface Home {
   layout?:
     | (
         | LandingHero
-        | {
-            backgroundColor: 'primary' | 'secondary';
-            component: 'carousel' | 'basic';
-            cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'section';
-          }
+        | PageSection
         | {
             backgroundColor: 'primary' | 'secondary';
             id?: string | null;
@@ -494,6 +487,18 @@ export interface LandingHero {
   id?: string | null;
   blockName?: string | null;
   blockType: 'Hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PageSection".
+ */
+export interface PageSection {
+  backgroundColor: 'primary' | 'secondary';
+  component: 'carousel' | 'basic';
+  cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'section';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

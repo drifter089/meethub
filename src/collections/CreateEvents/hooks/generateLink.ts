@@ -12,7 +12,6 @@ export const generatedLink: CollectionBeforeReadHook<Post> = async ({
   //   previousDoc,
   req: { payload },
 }) => {
-  console.log('envs', process.env)
   const nextBaseUrl = process.env.VERCEL_URL || 'localhost:3000'
   const generatedLink = `https://${nextBaseUrl}/meethub/event/${doc.slug}`
 

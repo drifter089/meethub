@@ -2,6 +2,7 @@ import type { Block } from 'payload'
 
 export const Section: Block = {
   slug: 'section',
+  interfaceName: 'PageSection',
   fields: [
     {
       name: 'backgroundColor',

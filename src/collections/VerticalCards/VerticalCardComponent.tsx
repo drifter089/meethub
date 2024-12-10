@@ -11,11 +11,10 @@ const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }
         year: 'numeric',
       })
     : ''
-  const Newcontent = content.split(' ').slice(0, 40).join(' ')
-  console.log(Newcontent)
+  const Newcontent = content.split(' ').slice(0, 30).join(' ')
 
   return (
-    <div className="max-w-md rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+    <div className="min-w-[25rem] md:w-[32rem] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
       <div className="relative w-full h-[20rem] overflow-hidden">
         {typeof image !== 'string' && image?.url && (
           <Image src={image.url} alt={image.alt || 'Card image'} fill className="object-cover" />
@@ -23,7 +22,7 @@ const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }
       </div>
 
       <div className="p-6 flex flex-col gap-4">
-        <div >
+        <div>
           <div className="h-6 aspect-square relative border inline-block">
             {typeof image !== 'string' && image?.url && (
               <Image

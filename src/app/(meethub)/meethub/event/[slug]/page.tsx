@@ -14,7 +14,6 @@ import { Button } from '@/components/ui/button'
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   const parsedSlug = decodeURIComponent(slug)
-  console.log('parsedSlug', parsedSlug)
 
   const payload = await getPayloadHMR({ config })
 
@@ -58,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     return notFound()
   }
 
-  // console.log('page', page)
+  //
   const date = page?.eventDateTime ? new Date(page.eventDateTime) : new Date() // Ensure it's a valid Date object
   const formattedDate = date.toLocaleDateString('en-GB', {
     day: 'numeric',
