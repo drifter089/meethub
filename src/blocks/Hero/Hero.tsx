@@ -9,11 +9,10 @@ const LandingHeroComp: React.FC<LandingHero> = ({
   content,
   image,
   reverse,
+  blockName
 }) => {
-  
-
   return (
-    <div
+    <div id = {blockName || ''}
       className={`${backgroundColor === 'secondary' ? 'bg-secondary' : 'bg-background'} flex ${reverse === true ? 'flex-row-reverse' : 'flex-row'} flex-wrap justify-center w-full gap-2 md:gap-10 py-6 md:py-10 default-x-padding`}
     >
       <div className="w-[100%] lg:w-[45%] flex flex-col gap-4 justify-center">

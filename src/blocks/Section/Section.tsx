@@ -35,7 +35,7 @@ const Section: React.FC<PageSection> = async ({
   })
 
   return (
-    <>
+    <div id = {blockName|| ''}>
       <TextSection heading="Carousel" paragraph="Follow us" backgroundColor={backgroundColor} />
       {MakeCarousel(collectionsData.docs, 'horizontal')}
       <TextSection heading="Carousel" paragraph="Follow us" backgroundColor={backgroundColor} />
@@ -56,20 +56,24 @@ const Section: React.FC<PageSection> = async ({
       </div>
       <div className="max-w-[100vw] w-full flex flex-wrap">
         {eventsData?.docs?.length > 0 &&
-          eventsData.docs.map((block) => (
-            <VerticalCardComponent
-              updatedAt={block.updatedAt}
-              createdAt={block.createdAt}
-              key={block.id}
-              image={block?.image}
-              date={block?.eventDateTime}
-              headline={block?.title}
-              content={block?.content}
-              id={block.id}
-            />
-          ))}
+          eventsData.docs.map(
+            (block) =>
+              block.content && ( 
+                <VerticalCardComponent
+                  updatedAt={block.updatedAt}
+                  createdAt={block.createdAt}
+                  key={block.id}
+                  image={block?.image}
+                  date={block?.eventDateTime}
+                  headline={block?.title}
+                  content={block?.content}
+                  id={block.id}
+                />
+              )
+          )}
       </div>
-    </>
+
+    </div>
   )
 }
 export default Section
