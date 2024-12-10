@@ -197,21 +197,9 @@ export interface Horizontalcard {
 export interface Verticalcard {
   id: string;
   image?: (string | null) | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  headline: string;
+  content: string;
+  date?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -409,7 +397,9 @@ export interface HorizontalcardsSelect<T extends boolean = true> {
  */
 export interface VerticalcardsSelect<T extends boolean = true> {
   image?: T;
+  headline?: T;
   content?: T;
+  date?: T;
   updatedAt?: T;
   createdAt?: T;
 }
