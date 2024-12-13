@@ -8,6 +8,7 @@ import React from 'react'
 
 import { importMap } from './admin/importMap.js'
 import './custom.scss'
+import Script from 'next/script'
 
 type Args = {
   children: React.ReactNode
@@ -24,6 +25,14 @@ const serverFunction: ServerFunctionClient = async function (args) {
 
 const Layout = ({ children }: Args) => (
   <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+    <Script
+      src="https://visgl.github.io/react-google-maps/scripts/examples.css"
+      strategy="beforeInteractive"
+    />
+    <Script
+      src="https://visgl.github.io/react-google-maps/scripts/examples.js"
+      strategy="beforeInteractive"
+    />
     {children}
   </RootLayout>
 )

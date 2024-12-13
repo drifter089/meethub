@@ -160,8 +160,7 @@ export interface Post {
  */
 export interface Venue {
   id: string;
-  name: string;
-  description: string;
+  textFieldClientComponent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -363,8 +362,7 @@ export interface PostsSelect<T extends boolean = true> {
  * via the `definition` "venues_select".
  */
 export interface VenuesSelect<T extends boolean = true> {
-  name?: T;
-  description?: T;
+  textFieldClientComponent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
