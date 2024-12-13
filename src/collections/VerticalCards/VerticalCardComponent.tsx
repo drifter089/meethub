@@ -11,7 +11,7 @@ const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }
         year: 'numeric',
       })
     : ''
-    const Newcontent = (content || '').split(' ').slice(0, 30).join(' ');
+    const Newcontent = (content || '').split(' ').slice(0, 20).join(' ');
 
   return (
     <div className="min-w-[25rem] md:w-[32rem] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
