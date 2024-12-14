@@ -1,6 +1,13 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+  BoldFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  ItalicFeature,
+  LinkFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -17,6 +24,8 @@ import Page from './globals/Page'
 import HorizontalCard from './collections/HorizontalCards/HorizontalCards'
 import VerticalCards from './collections/VerticalCards/VerticalCards'
 import Header from './globals/NavBar/Header'
+
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -70,6 +79,32 @@ export default buildConfig({
         credentials: JSON.parse(process.env.GCS_KEYFILE || '{}'),
       },
       bucket: process.env.GCS_BUCKET || '',
+    }),
+    formBuilderPlugin({
+      fields: {
+        payment: false,
+      },
+      formOverrides: {
+        fields: ({ defaultFields }) => {
+          return defaultFields.map((field) => {
+            if ('name' in field && field.name === 'confirmationMessage') {
+              return {
+                ...field,
+                editor: lexicalEditor({
+                  features: ({ rootFeatures }) => {
+                    return [
+                      ...rootFeatures,
+                      FixedToolbarFeature(),
+                      HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                    ]
+                  },
+                }),
+              }
+            }
+            return field
+          })
+        },
+      },
     }),
   ],
 })
