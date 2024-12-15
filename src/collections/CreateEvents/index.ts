@@ -163,6 +163,11 @@ export const Posts: CollectionConfig = {
         },
       ],
     },
+    {
+      name: 'form',
+      type: 'relationship',
+      relationTo: 'forms',
+    },
     ...slugField(),
     {
       name: 'generatedLink',
