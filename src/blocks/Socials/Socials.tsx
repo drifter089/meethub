@@ -3,7 +3,7 @@ import React from 'react'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import PlatformIconLink from '@/collections/Platforms/PlatformIconLink'
-import TextSection from '@/components/ui/headingSection'
+import TextSection from '@/components/headingSection'
 
 const Socials = async ({ backgroundColor, blockName }: { backgroundColor: string, blockName: string| null| undefined }) => {
   const payload = await getPayload({ config: configPromise })
