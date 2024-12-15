@@ -1,7 +1,7 @@
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "./ui/navigation-menu";
 import { getPayload } from 'payload';
 import configPromise from '@payload-config';
-import NavBarComponent from "@/globals/NavBar/NavBarComponent";
+import NavBarComponent from './NavBarComponent'
 import Image from "next/image";
 
 const payload = await getPayload({ config: configPromise })

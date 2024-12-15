@@ -12,7 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import TextSection from '@/components/ui/headingSection'
+import TextSection from '@/components/headingSection'
 
 const Section: React.FC<PageSection> = async ({
   backgroundColor,

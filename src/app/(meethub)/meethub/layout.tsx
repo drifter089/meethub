@@ -1,4 +1,4 @@
-import LandingPageNavigation from '@/components/ui/LandingPageNavigation'
+import LandingPageNavigation from '@/components/LandingPageNavigation'
 import '../../../../globals.css'
 
 
