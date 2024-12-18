@@ -2,6 +2,8 @@ import React, {useEffect, useState, useCallback, FormEvent} from 'react';
 import {useMap, useMapsLibrary} from '@vis.gl/react-google-maps';
 import { useField, TextInput } from '@payloadcms/ui'
 
+
+
 interface Props {
   onPlaceSelect: (place: google.maps.places.PlaceResult | null) => void
   path?: string
@@ -88,7 +90,7 @@ export const AutocompleteCustom = ({ onPlaceSelect, path, field }: Props) => {
   )
 
   return (
-    <div className="autocomplete-container" style={{ width: '60vw' }}>
+    <div className="autocomplete-container"  style={{ width: '20vw', marginLeft:'1rem', marginTop:"1rem", borderRadius:"2rem"}}>
       <TextInput value={value} onChange={onInputChange} path={path || field.name} />
       {predictionResults.length > 0 && (
         <ul className="custom-list">
@@ -97,14 +99,6 @@ export const AutocompleteCustom = ({ onPlaceSelect, path, field }: Props) => {
               <li
                 key={place_id}
                 className="custom-list-item"
-                style={{
-                  height: '50px',
-                  overflow: 'hidden',
-                  backgroundColor: 'red',
-                  color: 'black',
-                  padding: '10px',
-                  cursor: 'pointer',
-                }}
                 onClick={() => handleSuggestionClick(place_id)}
               >
                 {description}
