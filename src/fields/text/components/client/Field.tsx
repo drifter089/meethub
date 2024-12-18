@@ -12,6 +12,7 @@ import {
   MapControl,
 } from '@vis.gl/react-google-maps'
 import { AutocompleteCustom } from './autocomplete-custom'
+import './index.scss'
 
 import MapHandler from './map-handler'
 
@@ -37,7 +38,6 @@ export const CustomTextFieldClient: TextFieldClientComponent = ({ field, path })
         style={{
           width: '100%',
           height: '70vh',
-          backgroundColor: 'red',
         }}
       >
         <APIProvider apiKey={API_KEY}>
@@ -61,7 +61,7 @@ export const CustomTextFieldClient: TextFieldClientComponent = ({ field, path })
               />
             )}
           </Map>
-          <MapControl position={ControlPosition.TOP}>
+          <MapControl position={ControlPosition.LEFT_TOP}>
             <div className="autocomplete-control">
               <AutocompleteCustom onPlaceSelect={setSelectedPlace} path={path} field={field} />
             </div>
