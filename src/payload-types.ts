@@ -45,11 +45,9 @@ export interface Config {
     defaultIDType: string;
   };
   globals: {
-    header: Header;
     home: Home;
   };
   globalsSelect: {
-    header: HeaderSelect<false> | HeaderSelect<true>;
     home: HomeSelect<false> | HomeSelect<true>;
   };
   locale: null;
@@ -165,6 +163,7 @@ export interface Post {
  */
 export interface Venue {
   id: string;
+  venueName: string;
   textFieldClientComponent?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -557,6 +556,7 @@ export interface PostsSelect<T extends boolean = true> {
  * via the `definition` "venues_select".
  */
 export interface VenuesSelect<T extends boolean = true> {
+  venueName?: T;
   textFieldClientComponent?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -778,23 +778,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "header".
- */
-export interface Header {
-  id: string;
-  image?: (string | null) | Media;
-  name?:
-    | {
-        title?: string | null;
-        link?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home".
  */
 export interface Home {
@@ -840,23 +823,6 @@ export interface PageSection {
   id?: string | null;
   blockName?: string | null;
   blockType: 'section';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "header_select".
- */
-export interface HeaderSelect<T extends boolean = true> {
-  image?: T;
-  name?:
-    | T
-    | {
-        title?: T;
-        link?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

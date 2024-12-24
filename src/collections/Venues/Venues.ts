@@ -7,12 +7,12 @@ const Venues: CollectionConfig = {
   //   useAsTitle: 'name',
   // },
   fields: [
-    // {
-    //   name: 'name',
-    //   type: 'text',
-    //   required: true,
-    //   label: 'name of the place',
-    // },
+    {
+      name: 'venueName',
+      type: 'text',
+      required: true,
+      label: 'Name of the place',
+    },
     // {
     //   name: 'description',
     //   type: 'text',

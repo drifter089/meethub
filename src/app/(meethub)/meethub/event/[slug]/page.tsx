@@ -10,6 +10,7 @@ import Image from 'next/image'
 import EventHost from '@/collections/Users/EventHost'
 import VenueComponent from '@/collections/Venues/VenueComponent'
 import { Button } from '@/components/ui/button'
+import EventDescription from '@/components/EventDescription'
 // import { Button } from '@payloadcms/ui'
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
@@ -81,31 +82,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           )}
         </div>
       </div>
-      <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-[20vw]">
-        <div className="flex flex-col justify-start items-start min-w-[50%]">
-          <h3 className=" text-[1.5rem] font-bold">Description:</h3>
-          <p className="text-black text-2xl font-normal pb-5 pr-[5vw]">{page.content}</p>
-          <div className="my-auto">
-            {page.platforms &&
-              page.platforms.map((platform) =>
-                typeof platform === 'object' && platform.link && platform.name ? (
-                  <>
-                    <span className="py-1 block text-black text-2xl font-normal">
-                      {platform.name} : {platform.link}
-                    </span>
-                  </>
-                ) : null,
-              )}
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center min-w-[50%] gap-4">
-          {page.authors &&
-            page.authors.map((author, index) => (
-              <EventHost key={index} imageLink={author.image.url} name={author.name} />
-            ))}
-          {/* <EventHost imageLink={page} /> */}
-          <VenueComponent />
-        </div>
+      <div className=" flex flex-row bg-secondary py-16 px-[12rem] h-[64.5rem]">
+        <EventDescription page={page} />
       </div>
       <div className="relative w-full">
         <Image
