@@ -82,7 +82,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           )}
         </div>
       </div>
-      <div className=" flex flex-row bg-secondary py-16 px-[12rem] h-[64.5rem]">
+      <div className=" flex justify-center bg-secondary py-8 px-[12rem] h-[125rem] lg:h-[64.5rem]">
         <EventDescription page={page} />
       </div>
       <div className="relative w-full">
