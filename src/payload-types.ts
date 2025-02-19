@@ -815,9 +815,12 @@ export interface LandingHero {
  * via the `definition` "PageSection".
  */
 export interface PageSection {
+  subheading: string;
+  heading: string;
   backgroundColor: 'primary' | 'secondary';
   component: 'carousel' | 'basic';
   cards: 'horizontalcards' | 'verticalcard' | 'upcomingevents' | 'pastevents';
+  limit: number;
   id?: string | null;
   blockName?: string | null;
   blockType: 'section';
@@ -845,9 +848,12 @@ export interface HomeSelect<T extends boolean = true> {
         section?:
           | T
           | {
+              subheading?: T;
+              heading?: T;
               backgroundColor?: T;
               component?: T;
               cards?: T;
+              limit?: T;
               id?: T;
               blockName?: T;
             };

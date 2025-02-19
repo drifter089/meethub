@@ -2,8 +2,9 @@ import React from 'react'
 import type { Verticalcard } from '@/payload-types'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 
-const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }) => {
+const VerticalCardComponent: React.FC<Verticalcard> = ({ image, content, headline, date }) => {
   const formattedDate = date
     ? new Date(date).toLocaleDateString('en-GB', {
         day: 'numeric',
@@ -14,7 +15,7 @@ const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }
   const Newcontent = (content || '').split(' ').slice(0, 15).join(' ')
 
   return (
-    <div className="min-w-[25rem] md:w-[25rem]  overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+    <Card className="min-w-[25rem] md:w-[25rem] rounded-radius overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
       <div className="relative w-full h-[15rem] overflow-hidden">
         {typeof image !== 'string' && image?.url && (
           <Image src={image.url} alt={image.alt || 'Card image'} fill className="object-cover" />
@@ -37,10 +38,10 @@ const VerticalCard: React.FC<Verticalcard> = ({ image, content, headline, date }
         </div>
         <h2 className="text-title-bold">{headline}</h2>
         <p className="text-subparagraph">{Newcontent}</p>
-        <Button variant="secondary">RSVP</Button>
+        <Button variant="secondary">more info</Button>
       </div>
-    </div>
+    </Card>
   )
 }
 
-export default VerticalCard
+export default VerticalCardComponent
