@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const VenueComponent = () => {
   return (
-    <Card className="flex flex-col">
-      <div className="flex items-left w-[80%%] justify-left m-3">
+    <Card className="flex  bg-black border-transparent  flex-col">
+      <div className="flex items-left w-[80%%] justify-left mb-3 ">
         <Avatar>
           <AvatarImage
             src="https://meethub-smoky.vercel.app/api/media/file/clockIcon.svg"
@@ -14,12 +14,12 @@ const VenueComponent = () => {
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <div className="ml-4 font-normal text-[1.5rem]">
+        <div className="ml-4 font-normal text-foreground text-[1.5rem]">
           Saturday, November 16, 2024
           <p>8:00pm</p>
         </div>
       </div>
-      <div className="flex items-left w-[80%] justify-left m-3">
+      <div className="flex items-left w-[80%] justify-left mb-3">
         <Avatar>
           <AvatarImage
             src="https://meethub-smoky.vercel.app/api/media/file/locationIcon.svg"
@@ -27,8 +27,8 @@ const VenueComponent = () => {
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <div className="ml-4 font-semibold text-[1.5rem]">
-          <p>The white mulberry</p>
+        <div className="ml-4 text-foreground font-semibold text-[1.5rem]">
+          <p>YOUR EVENT LOCATION</p>
           <div className="font-normal">
             <p>SILQ hotel Sukhumvit soi 24, 9th floor, Bangkok</p>
           </div>

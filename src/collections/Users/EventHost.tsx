@@ -15,13 +15,13 @@ const EventHost = ({ imageLink, name }: { imageLink: string; name: string }) => 
   return (
     <>
       <Card>
-        <div className="flex flex-row items-center p-3 px-4 min-w-[100%]">
+        <div className="flex flex-row items-center bg-black border-black p-3 px-4 min-w-[100%]">
           <Avatar className="scale-125">
             <AvatarImage src={imageLink} alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <div className="ml-4">
-            <p className="text-black text-2xl font-bold">Bangkok Events & Meet new Friends</p>
+            <p className="text-white text-2xl font-bold">THIS IS THE EVENT HOST</p>
             <p className="text-[#A29F9F] text-2xl font-normal">{name}</p>
           </div>
         </div>

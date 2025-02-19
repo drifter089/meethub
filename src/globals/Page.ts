@@ -9,6 +9,9 @@ import { Social } from '@/blocks/Socials/config'
 const Page: GlobalConfig = {
   slug: 'home',
   label: 'Home Page',
+  admin: {
+    hidden: true,
+  },
   fields: [
     {
       name: 'image',

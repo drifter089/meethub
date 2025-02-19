@@ -8,6 +8,9 @@ import {
 
 const VerticalCards: CollectionConfig = {
   slug: 'verticalcards',
+  admin: {
+    hidden: true,
+  },
   fields: [
     {
       name: 'image',
@@ -35,7 +38,7 @@ const VerticalCards: CollectionConfig = {
         // readOnly: true,
         position: 'sidebar',
       },
-    }
+    },
   ],
 }
 

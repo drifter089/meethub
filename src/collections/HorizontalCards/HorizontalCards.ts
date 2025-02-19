@@ -8,6 +8,9 @@ import {
 
 const HorizontalCard: CollectionConfig = {
   slug: 'horizontalcards',
+  admin: {
+    hidden: true,
+  },
   fields: [
     {
       name: 'image',
