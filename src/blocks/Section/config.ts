@@ -5,6 +5,16 @@ export const Section: Block = {
   interfaceName: 'PageSection',
   fields: [
     {
+      name: 'subheading',
+      type: 'textarea',
+      required: true,
+    },
+    {
+      name: 'heading',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'backgroundColor',
       type: 'select',
       defaultValue: 'primary',
@@ -40,6 +50,12 @@ export const Section: Block = {
           value: 'pastevents',
         },
       ],
+      required: true,
+    },
+    {
+      name: 'limit',
+      type: 'number',
+      defaultValue: 3,
       required: true,
     },
   ],

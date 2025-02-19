@@ -60,6 +60,9 @@ const page = async () => {
                 cards={block.cards}
                 blockType={block.blockType}
                 blockName={sectionId}
+                limit={block.limit}
+                subheading={block.subheading}
+                heading={block.heading}
               />
             )
           }
