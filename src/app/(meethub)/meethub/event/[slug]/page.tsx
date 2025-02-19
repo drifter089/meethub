@@ -68,12 +68,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <>
       <div
-        className={`flex flex-wrap justify-center w-full gap-2 md:gap-10 py-6 md:py-10 overflow-hidden overflow-x-clip border-border default-x-padding`}
+        className={`flex flex-wrap justify-center w-full gap-2 md:gap-10 py-6 md:py-20 overflow-hidden overflow-x-clip border-border default-x-padding`}
       >
         <div className="w-[100%] lg:w-[45%] flex flex-col gap-4 justify-center">
           <p className="text-paragraph-primary">{formattedDate}</p>
           <h1 className="text-subheading">{page.title}</h1>
-          <Button variant="default">See Events</Button>
+          <Button variant="default">RSVP NOW</Button>
         </div>
         <div className="relative h-[40vh] sm:h-[40vh] md:h-[60vh] lg:min-h-[50vh] w-full lg:w-[45%]">
           {typeof page.image !== 'string' && page.image?.url && (
@@ -81,10 +81,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           )}
         </div>
       </div>
-      <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-[20vw]">
+      <div className=" flex flex-row bg-[#FF009D]/5 py-8 px-[16vw]">
         <div className="flex flex-col justify-start items-start min-w-[50%]">
           <h3 className=" text-[1.5rem] font-bold">Description:</h3>
-          <p className="text-black text-2xl font-normal pb-5 pr-[5vw]">{page.content}</p>
+          <p className="text-white text-2xl font-normal pb-5 pr-[5vw]">{page.content}</p>
           <div className="my-auto">
             {page.platforms &&
               page.platforms.map((platform) =>
@@ -99,17 +99,17 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
         </div>
         <div className="flex flex-col justify-center items-center min-w-[50%] gap-4">
-          {page.authors &&
+          {/* {page.authors &&
             page.authors.map((author, index) => (
               <EventHost key={index} imageLink={author.image.url} name={author.name} />
-            ))}
+            ))} */}
           {/* <EventHost imageLink={page} /> */}
           <VenueComponent />
         </div>
       </div>
       <div className="relative w-full">
         <Image
-          src="https://meethub-smoky.vercel.app/api/media/file/paymentsSection.png" // Replace with your actual image path or URL
+          src="https://meethub-smoky.vercel.app/api/media/file/newpay.png" // Replace with your actual image path or URL
           layout="responsive"
           width={900} // Replace with the desired width
           height={400} // Replace with the desired height
