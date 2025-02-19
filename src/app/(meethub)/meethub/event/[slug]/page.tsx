@@ -113,10 +113,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           layout="responsive"
           width={900} // Replace with the desired width
           height={400} // Replace with the desired height
-          style={{
-            width: '100vh', // Fills 80% of the screen width
-            height: 'auto', // Keeps the aspect ratio
-          }}
           alt="Additional image at the bottom"
         />
       </div>
